@@ -1,0 +1,284 @@
+{
+  "figures": [
+    {
+      "id": "fig-zhou-2024-archer",
+      "paper_key": "zhou-2024-archer",
+      "path": "figures/zhou-2024-archer-fig1.png",
+      "caption": "Single-turn RL vs. multi-turn RL for LLM agents: the single-turn agent (left) tries to resolve a user's request in one reply using a reward model and token-level actor; the multi-turn agent (right) gathers information across turns using a learned value function Q^pi(s,a) trained via off-policy RL, achieving better user satisfaction.",
+      "attribution": "Figure 1 from Zhou et al. (2024), ArCHer: Training Language Model Agents via Hierarchical Multi-Turn RL, arXiv:2402.19446, CC BY 4.0"
+    },
+    {
+      "id": "fig-kim-2024-sdpo",
+      "paper_key": "kim-2024-sdpo",
+      "path": "figures/kim-2024-sdpo-fig1.png",
+      "caption": "Overview of sDPO: standard DPO trains on the full preference dataset at once, while sDPO partitions the preference dataset into steps, using the model aligned in the previous step as the reference/starting point for the next, so alignment proceeds through a sequence of progressively better-aligned models.",
+      "attribution": "Figure from Kim et al. (2024), arXiv:2403.19270"
+    },
+    {
+      "id": "fig-rafailov-2023-dpo",
+      "paper_key": "rafailov-2023-dpo",
+      "path": "figures/rafailov-2023-dpo-fig1.png",
+      "caption": "DPO optimizes for human preferences while avoiding reinforcement learning: existing RLHF methods fit a reward model to preference data and then use RL to find a policy maximizing it, whereas DPO uses the preference data directly via a maximum-likelihood objective to produce the final LM, with no separate reward model or RL loop.",
+      "attribution": "Figure 1 from Rafailov et al. (2023), Direct Preference Optimization: Your Language Model is Secretly a Reward Model, arXiv:2305.18290, CC BY 4.0"
+    },
+    {
+      "id": "fig-zhao-2025-muarl",
+      "paper_key": "zhao-2025-muarl",
+      "path": "figures/zhao-2025-muarl-fig4.png",
+      "caption": "Three kinds of multi-turn rollout processes for RL training of tool-using LLM agents: (a) text-based rollout, (b) multi-step rollout with tool execution, (c) multi-turn user-interacting rollout with tool execution, where a separate user-simulator LLM converses with the policy across turns.",
+      "attribution": "Figure 4 from Zhao et al. (2025), MUA-RL: Multi-turn User-interacting Agent Reinforcement Learning for Agentic Tool Use, arXiv:2508.18669, CC BY 4.0"
+    },
+    {
+      "id": "fig-liu-2023-rso",
+      "paper_key": "liu-2023-rso",
+      "path": "figures/liu-2023-rso-fig1.png",
+      "caption": "RSO's three-step pipeline: (1) sample candidate responses from the SFT policy and use a statistical rejection-sampling procedure to accept/reject them, (2) rank the accepted responses with a pairwise reward model to form preference pairs, and (3) run a preference-optimization step on the SFT policy using those pairs to produce the optimized policy.",
+      "attribution": "Figure 1 from Liu et al. (2023), Statistical Rejection Sampling Improves Preference Optimization, arXiv:2309.06657, CC BY 4.0"
+    },
+    {
+      "id": "fig-ethayarajh-2024-kto",
+      "paper_key": "ethayarajh-2024-kto",
+      "path": "figures/ethayarajh-2024-kto-fig1.png",
+      "caption": "The implied human value function under different alignment losses: Kahneman-Tversky prospect-theoretic value functions are concave in gains and convex in losses with loss aversion around a reference point, while DPO and PPO-Clip imply value functions with different shapes and reference points, motivating KTO's direct optimization of Kahneman-Tversky-style human utility.",
+      "attribution": "Figure 1 from Ethayarajh et al. (2024), KTO: Model Alignment as Prospect Theoretic Optimization, arXiv:2402.01306, CC BY-SA 4.0"
+    },
+    {
+      "id": "fig-liu-drgrpo",
+      "paper_key": "liu-2025-dr-grpo-r1-zero-critical-perspective",
+      "path": "figures/fig-liu-drgrpo.png",
+      "caption": "Left: Dr. GRPO removes GRPO's length and std-normalization terms (highlighted in red) from the policy-gradient objective. Right: this unbiased optimizer prevents the model from generating progressively longer incorrect responses during RL training, improving token efficiency relative to standard GRPO.",
+      "attribution": "Figure from Liu et al. (2025), arXiv:2503.20783"
+    },
+    {
+      "id": "fig-chowdhury-2024-robust-dpo",
+      "paper_key": "chowdhury-2024-robust-dpo",
+      "path": "figures/chowdhury-2024-robust-dpo-fig1.png",
+      "caption": "Mean reward on the IMDb dataset at different sampling temperatures after 1000 training steps, comparing conservative/robust DPO and PPO variants (rDPO, cDPO, DPO, rPPO, cPPO, PPO): the robust rDPO variant attains the highest and most temperature-stable reward, while plain PPO trails all DPO variants.",
+      "attribution": "Figure 1 from Chowdhury et al. (2024), Provably Robust DPO: Aligning Language Models with Noisy Feedback, arXiv:2403.00409, CC BY 4.0"
+    },
+    {
+      "id": "fig-bai-2022-hh-rlhf",
+      "paper_key": "bai-2022-hh-rlhf",
+      "path": "figures/bai-2022-hh-rlhf-fig6.png",
+      "caption": "The crowdworker interface used to collect helpfulness preference data: workers converse with the AI assistant across several turns, then are shown two candidate final responses (A and B) and choose which is more helpful and honest, on an 8-point A-is-better-to-B-is-better scale.",
+      "attribution": "Figure 6 from Bai et al. (2022), Training a Helpful and Harmless Assistant with Reinforcement Learning from Human Feedback, arXiv:2204.05862, CC BY 4.0"
+    },
+    {
+      "id": "fig-munos-2023-nash-learning",
+      "paper_key": "munos-2023-nash-learning",
+      "path": "figures/munos-2023-nash-learning-fig1.png",
+      "caption": "Learning curves showing preference-model accuracy vs. training steps for three model sizes (Preference Model S, XL, XXL), on the training set (left) and held-out test set (right); larger preference models converge faster and to higher accuracy.",
+      "attribution": "Figure from Munos et al. (2023), arXiv:2312.00886"
+    },
+    {
+      "id": "fig-lin-2024-mitigating-alignment-tax-rlhf",
+      "paper_key": "lin-2024-mitigating-alignment-tax-rlhf",
+      "path": "figures/lin-2024-alignment-tax-illustration.png",
+      "caption": "Illustration of the RLHF procedure and the resulting alignment tax: instruction tuning and RLHF improve helpfulness (+56%) but cause forgetting on common sense, translation, and comprehension benchmarks.",
+      "attribution": "Figure 1 from Lin et al. (2024), Mitigating the Alignment Tax of RLHF, arXiv:2309.06256 (CC0 1.0)"
+    },
+    {
+      "id": "fig-song-2024-eto",
+      "paper_key": "song-2024-eto",
+      "path": "figures/song-2024-eto-fig1.png",
+      "caption": "Exploration-based Trajectory Optimization (ETO): the LLM agent explores the environment to collect failure trajectories, pairs them with success trajectories, and optimizes the policy via a DPO loss on these contrastive pairs, iterating the explore-collect-optimize cycle.",
+      "attribution": "Figure 1 from Song et al. (2024), Trial and Error: Exploration-Based Trajectory Optimization for LLM Agents, arXiv:2403.02502, CC BY 4.0"
+    },
+    {
+      "id": "fig-bai-2022-constitutional-ai",
+      "paper_key": "bai-2022-constitutional-ai",
+      "path": "figures/bai-2022-constitutional-ai-fig2.png",
+      "caption": "Harmlessness versus helpfulness Elo scores across RL training steps: RLHF models trained on human feedback (Helpful, HH) show a helpfulness-harmlessness tradeoff, while RL-CAI models trained with AI feedback (with and without chain-of-thought) achieve less harmful behavior at a given helpfulness level.",
+      "attribution": "Figure 2 from Bai et al. (2022), Constitutional AI: Harmlessness from AI Feedback, arXiv:2212.08073, CC BY 4.0"
+    },
+    {
+      "id": "fig-yue-2025-does-rl-incentivize-reasoning-capacity",
+      "paper_key": "yue-2025-does-rl-incentivize-reasoning-capacity",
+      "path": "figures/yue-2025-perplexity-evolution.png",
+      "caption": "Perplexity of RL-trained-policy outputs under the base model (PPL_base(Y_RL)) decreases steadily across early, middle, and final RLVR checkpoints, showing RL sharpens the base model's existing distribution rather than expanding it.",
+      "attribution": "Figure 15 from Yue et al. (2025), Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?, arXiv:2504.13837 (CC BY 4.0)"
+    },
+    {
+      "id": "fig-bai-2024-digirl",
+      "paper_key": "bai-2024-digirl",
+      "path": "figures/bai-2024-digirl-fig1.png",
+      "caption": "DigiRL overview: a pretrained VLM is first fine-tuned with offline RL on existing trajectories (Step I), then continually improved with online RL where the model executes tasks in parallel, an AutoEval module annotates rewards for each trajectory, and annotated trajectories update the online model (Step II).",
+      "attribution": "Figure 1 from Bai et al. (2024), DigiRL: Training In-The-Wild Device-Control Agents with Autonomous Reinforcement Learning, arXiv:2406.11896, CC BY 4.0"
+    },
+    {
+      "id": "fig-zheng-ppo-workflow",
+      "paper_key": "zheng-2023-secrets-rlhf-ppo",
+      "path": "figures/fig-zheng-ppo-workflow.png",
+      "caption": "PPO workflow for RLHF: the policy LM samples a response to a user query, the reward model and SFT-model KL penalty combine into a reward, GAE turns this into advantages and returns stored in an experience buffer, and the policy and value models are updated from PPO-clip, LM, and MSE losses computed against that buffer.",
+      "attribution": "Figure 1 from Zheng et al. (2023), Secrets of RLHF in Large Language Models Part I: PPO, arXiv:2307.04964"
+    },
+    {
+      "id": "fig-pan-2024-swegym",
+      "paper_key": "pan-2024-swegym",
+      "path": "figures/pan-2024-swegym-fig1.png",
+      "caption": "SWE-Gym enables scalable improvements for software engineering agents: SWE-Bench Verified resolution rate scales log-linearly both with the number of training trajectories (top) and, at inference time, with the number of agent rollouts selected by a verifier (bottom), with no sign of saturation at 491 trajectories or 16 rollouts.",
+      "attribution": "Figure 1 from Pan et al. (2025), Training Software Engineering Agents and Verifiers with SWE-Gym, arXiv:2412.21139, CC BY 4.0"
+    },
+    {
+      "id": "fig-glaese-2022-sparrow",
+      "paper_key": "glaese-2022-sparrow",
+      "path": "figures/glaese-2022-sparrow-fig3.png",
+      "caption": "Sparrow's data collection pipeline: raters interact with the model in a Response Preference task (picking the best of several candidate statements) and an Adversarial Probing task (trying to elicit rule violations); the resulting judgements train Preference and Rule reward models, which in turn drive reinforcement learning to improve the policy, and the loop repeats.",
+      "attribution": "Figure 3 from Glaese et al. (2022), Improving alignment of dialogue agents via targeted human judgements, arXiv:2209.14375, CC BY 4.0"
+    },
+    {
+      "id": "fig-coste-2024-reward-model-ensembles-mitigate-overoptimization",
+      "paper_key": "coste-2024-reward-model-ensembles-mitigate-overoptimization",
+      "path": "figures/coste-2024-rlhf-pipeline.png",
+      "caption": "The RLHF pipeline used in this work, with the paper's modifications (ensemble of proxy reward models with conservative optimization) highlighted in green on top of the standard SFT, RM training, and policy optimization stages.",
+      "attribution": "Figure 1 from Coste et al. (2024), Reward Model Ensembles Help Mitigate Overoptimization, arXiv:2310.02743 (CC BY 4.0)"
+    },
+    {
+      "id": "fig-qi-2024-webrl",
+      "paper_key": "qi-2024-webrl",
+      "path": "figures/qi-2024-webrl-fig1.png",
+      "caption": "(a) WebArena-Lite success rate comparison: GLM-4-9B trained with WebRL outperforms all proprietary and open-sourced baselines. (b) Per-website breakdown (Gitlab, Reddit, CMS, Map, OSS) showing WebRL's consistent improvement over SFT, Filtered BC, AWR, DigiRL, and the base chat model.",
+      "attribution": "Figure 1 from Qi et al. (2025), WebRL: Training LLM Web Agents via Self-Evolving Online Curriculum Reinforcement Learning, arXiv:2411.02337, CC BY-NC-SA 4.0"
+    },
+    {
+      "id": "fig-huang-eos-trick",
+      "paper_key": "huang-2024-n-implementation-details-rlhf-ppo",
+      "path": "figures/fig-huang-eos-trick.png",
+      "caption": "A 1B PPO model's response tokens and their corresponding per-token reward-model logits: non-EOS tokens receive consistently negative reward logits while the EOS token receives the actual scalar reward (0.65), illustrating the 'EOS trick' needed to extract a valid reward-model score during PPO training on TL;DR summarization.",
+      "attribution": "Figure 6 from Huang et al. (2024), The N+ Implementation Details of RLHF with PPO: A Case Study on TL;DR Summarization, arXiv:2403.17031"
+    },
+    {
+      "id": "fig-ahmadian-2024-rloo-back-to-basics",
+      "paper_key": "ahmadian-2024-rloo-back-to-basics",
+      "path": "figures/ahmadian-2024-rloo-back-to-basics-fig2.png",
+      "caption": "Test reward throughout RLHF training on TL;DR Summarize and Anthropic-HH (Pythia and Llama backbones), comparing RLOO (k=2), RAFT (k=2), REINFORCE with a moving-average baseline, PPO, and vanilla policy gradient. RLOO consistently outperforms all other methods, and even vanilla policy gradient outperforms PPO, motivating the paper's case that PPO's added machinery is unnecessary for RLHF fine-tuning.",
+      "attribution": "Figure 2 from Ahmadian et al. (2024), Back to Basics: Revisiting REINFORCE-Style Optimization for Learning from Human Feedback in LLMs, arXiv:2402.14740, CC BY 4.0"
+    },
+    {
+      "id": "fig-shao-2025-spurious-rewards-rlvr",
+      "paper_key": "shao-2025-spurious-rewards-rlvr",
+      "path": "figures/shao-2025-reasoning-strategy-switching.png",
+      "caption": "Reasoning strategy switching and fine-grained performance of Qwen2.5-Math-7B on MATH-500 before/after RLVR with five different training signals (Ground Truth, Majority Vote, Format, Incorrect, Random). Blue = code reasoning, red = language-only reasoning; for all weak and spurious rewards the model shifts toward more code reasoning, with Lang-to-Code switches showing the largest accuracy gains.",
+      "attribution": "Figure 18 from Shao et al. (2025), Spurious Rewards: Rethinking Training Signals in RLVR, arXiv:2506.10947 (CC BY-NC-SA 4.0)"
+    },
+    {
+      "id": "fig-wang-2025-ragen",
+      "paper_key": "wang-2025-ragen",
+      "path": "figures/wang-2025-ragen-fig1.png",
+      "caption": "Prior methods (SFT, single-turn RL) target static, non-stochastic single-turn tasks like math and code. RAGEN instead implements StarPO (State-Thinking-Actions-Reward Policy Optimization), which runs K-turn rollouts against an environment and updates the policy on full trajectories, evaluated on dynamic, single- and multi-turn stochastic tasks (Bandit, Sokoban, Frozen Lake).",
+      "attribution": "Figure 1 from Wang et al. (2025), RAGEN: Understanding Self-Evolution in LLM Agents via Multi-Turn Reinforcement Learning, arXiv:2504.20073, CC BY 4.0"
+    },
+    {
+      "id": "fig-rame-2024-warm",
+      "paper_key": "rame-2024-warm",
+      "path": "figures/rame-2024-warm-fig1.png",
+      "caption": "Overview of WARM (Weight Averaged Reward Models): (a) starting from a shared SFT model, multiple reward models are fine-tuned independently with different hyperparameters on the same preference dataset, then averaged in weight space to produce a single proxy reward model used for RL fine-tuning; (b) control reward during RL shows that increasing the number of averaged RMs (M) delays and mitigates the reward-hacking collapse compared to a single RM or prediction ensembling (ENS).",
+      "attribution": "Figure 1 from Rame et al. (2024), WARM: On the Benefits of Weight Averaged Reward Models, arXiv:2401.12187, CC BY-NC-SA 4.0"
+    },
+    {
+      "id": "fig-kazemnejad-credit-assignment",
+      "paper_key": "kazemnejad-2024-vineppo",
+      "path": "figures/fig-kazemnejad-credit-assignment.png",
+      "caption": "Three credit-assignment mechanisms for intermediate states s1, s2 in a training trajectory: RLOO/GRPO use the average return across a group of full trajectories as a shared baseline for every state; PPO trains a separate value network to predict a per-state baseline; VinePPO instead computes an unbiased Monte Carlo value estimate by generating auxiliary rollouts from each intermediate state.",
+      "attribution": "Figure 2 from Kazemnejad et al. (2024), VinePPO: Refining Credit Assignment in RL Training of LLMs, arXiv:2410.01679"
+    },
+    {
+      "id": "fig-li-2023-remax",
+      "paper_key": "li-2023-remax",
+      "path": "figures/li-2023-remax-fig1.png",
+      "caption": "Building blocks of PPO versus ReMax, depicted as truck payloads: PPO carries a reference model, value model, the value model's optimizer states, and more than 4 value-model-related hyperparameters, all needed to compute an update from the reward model. ReMax keeps only the reference model, dropping every value-model component while still computing an update from the reward model's response.",
+      "attribution": "Figure 1 from Li et al. (2024), ReMax: A Simple, Effective, and Efficient Reinforcement Learning Method for Aligning Large Language Models, arXiv:2310.10505, CC BY-NC-ND 4.0"
+    },
+    {
+      "id": "fig-chen-2024-odin",
+      "paper_key": "chen-2024-odin",
+      "path": "figures/chen-2024-odin-fig1.png",
+      "caption": "Overview of ODIN: during RM training, a two-head reward model is trained on human preference data with a loss that disentangles a length head from a quality head; during RL fine-tuning, only the quality head's reward is used to sample and fine-tune the policy, discarding the length signal to reduce reward hacking on response length.",
+      "attribution": "Figure 1 from Chen et al. (2024), ODIN: Disentangled Reward Mitigates Hacking in RLHF, arXiv:2402.07319, CC BY 4.0"
+    },
+    {
+      "id": "fig-gulcehre-2023-rest",
+      "paper_key": "gulcehre-2023-rest",
+      "path": "figures/gulcehre-2023-rest-fig1.png",
+      "caption": "The ReST (Reinforced Self-Training) method: during the Grow step, the current policy generates a dataset of samples; during the Improve step, that dataset is filtered and used to fine-tune the policy; both steps are repeated, with the Improve step repeated more frequently than the Grow step to amortize the cost of dataset generation.",
+      "attribution": "Figure 1 from Gulcehre et al. (2023), Reinforced Self-Training (ReST) for Language Modeling, arXiv:2308.08998, CC BY-NC-ND 4.0"
+    },
+    {
+      "id": "fig-da-2025-agentrlvr",
+      "paper_key": "da-2025-agentrlvr",
+      "path": "figures/da-2025-agentrlvr-fig1.png",
+      "caption": "Agent-RLVR trains agents using environment feedback and guidance: (1) the agent attempts a task unaided and the environment runs unit tests on the resulting patch; (2) for failed trajectories, agent guidance gathers environment information (e.g. a stack trace) and turns it into a plan, environment feedback, or environment interaction hint, and the agent reattempts with guidance; (3) positive trajectories are used for instruct-tuning and RLVR policy updates via offline DPO.",
+      "attribution": "Figure 1 from Da et al. (2025), Agent-RLVR: Training Software Engineering Agents via Guidance and Environment Rewards, arXiv:2506.11425, CC BY 4.0"
+    },
+    {
+      "id": "fig-singh-2023-beyond-human-data",
+      "paper_key": "singh-2023-beyond-human-data",
+      "path": "figures/singh-2023-beyond-human-data-fig1.png",
+      "caption": "Self-training with ReST-EM substantially improves PaLM 2 test performance on two challenging benchmarks, MATH (4-shot test accuracy) and HumanEval code generation (0-shot accuracy), with ReST-EM-tuned PaLM 2-L and PaLM 2-S models moving well above their pre-ReST-EM counterparts and other contemporary models of similar or larger scale.",
+      "attribution": "Figure 1 from Singh et al. (2023), Beyond Human Data: Scaling Self-Training for Problem-Solving with Language Models, arXiv:2312.06585, CC BY-SA 4.0"
+    },
+    {
+      "id": "fig-moskovitz-2024-confronting-reward-overoptimization-constrained-rlhf",
+      "paper_key": "moskovitz-2024-confronting-reward-overoptimization-constrained-rlhf",
+      "path": "figures/moskovitz-2024-imperfect-proxy-rms.png",
+      "caption": "Individual reward models are imperfect proxies for evaluation score: evaluation score initially increases as individual RMs (Intent, METEOR) and the KL divergence to the reference policy grow, then falls sharply past a proxy point, illustrating reward overoptimization.",
+      "attribution": "Figure 3.2 from Moskovitz et al. (2024), Confronting Reward Model Overoptimization with Constrained RLHF, arXiv:2310.04373 (CC BY-NC-ND 4.0)"
+    },
+    {
+      "id": "fig-mahan-2024-generative-reward-models",
+      "paper_key": "mahan-2024-generative-reward-models",
+      "path": "figures/mahan-2024-generative-reward-models-fig1.png",
+      "caption": "Methods overview comparing three reward-modeling approaches: Bradley-Terry directly outputs the probability that y1 is preferred over y2 via a linear predictor on top of the LLM; GenRM compares the LLM's next-token probabilities of answer-indicator tokens (I1, I2); CoT-GenRM samples reasoning traces followed by an answer-indicator token and aggregates multiple samples via majority vote.",
+      "attribution": "Figure 1 from Mahan et al. (2024), Generative Reward Models, arXiv:2410.12832, CC BY 4.0"
+    },
+    {
+      "id": "fig-singhal-2023-long-way-to-go-length-correlations-rlhf",
+      "paper_key": "singhal-2023-long-way-to-go-length-correlations-rlhf",
+      "path": "figures/singhal-2023-dataset-cartography.png",
+      "caption": "Dataset cartography heatmaps (variance of confidence over training vs. mean confidence, per preference pair) for the WebGPT, Stack, and RLCD reward-modeling datasets. WebGPT, which has the strongest length bias, is the most centered and symmetric, suggesting strong length biases emerge when reward models cannot learn clearer features from most training data.",
+      "attribution": "Figure 9 from Singhal et al. (2023), A Long Way to Go: Investigating Length Correlations in RLHF, arXiv:2310.03716 (CC BY 4.0)"
+    },
+    {
+      "id": "fig-qin-2024-o1-journey-part1",
+      "paper_key": "qin-2024-o1-journey-part1",
+      "path": "figures/qin-2024-o1-journey-part1-fig1.png",
+      "caption": "Illustration of the O1 Replication Journey from September 12 to October 8, 2024, spanning four stages -- Initial Assessment, Multi-path Exploration of Constructing Long Thoughts, Iterative Improvement, and Current Results -- culminating in the paper's 'journey learning' approach, which with only 327 training samples surpassed 'shortcut learning' baselines by 8.4 and 8.0 points on MATH500.",
+      "attribution": "Figure 1 from Qin et al. (2024), O1 Replication Journey: A Strategic Progress Report -- Part 1, arXiv:2410.18982, CC BY 4.0"
+    },
+    {
+      "id": "fig-cui-2025-prime",
+      "paper_key": "cui-2025-prime",
+      "path": "figures/cui-2025-prime-fig9b.png",
+      "caption": "PRIME's training loop: a policy model generates a response to a prompt, an outcome verifier scores it to produce an outcome reward, and an implicit process reward model (PRM) -- derived purely from the policy's own log-probabilities relative to a reference model, with no separate process-label training -- supplies a dense process reward that updates the policy alongside the outcome reward, with both the policy and the implicit PRM updated online during RL. This panel shows the 'SFT ref' variant, which retains the initial SFT model as the fixed reference for both the PRM and the KL term.",
+      "attribution": "Figure 9b from Cui et al. (2025), Process Reinforcement through Implicit Rewards, arXiv:2502.01456, CC BY-NC-ND 4.0"
+    },
+    {
+      "id": "fig-zhao-2025-absolute-zero-reasoner",
+      "paper_key": "zhao-2025-absolute-zero-reasoner",
+      "path": "figures/zhao-2025-absolute-zero-reasoner-fig1.png",
+      "caption": "Absolute Zero Reasoner (AZR) achieves state-of-the-art reasoning performance using zero human-curated data: (left) AZR's self-proposed math and code training data is orders of magnitude smaller than the curated datasets used by prior zero-RL baselines such as PRIME-Zero, ORZ, and SimpleRL-Zoo; (right) performance on math and coding domains, and overall, climbs steadily over self-play RL training steps until AZR surpasses the previous state of the art despite using no gold-labeled or human-defined queries.",
+      "attribution": "Figure 1 from Zhao et al. (2025), Absolute Zero: Reinforced Self-play Reasoning with Zero Data, arXiv:2505.03335, CC BY 4.0"
+    },
+    {
+      "id": "fig-rafailov-2024-scaling-laws-overoptimization-direct-alignment",
+      "paper_key": "rafailov-2024-scaling-laws-overoptimization-direct-alignment",
+      "path": "figures/rafailov-2024-dpo-scaling-law.png",
+      "caption": "GPT-4 winrate vs. square root of KL divergence for DPO across three model sizes (1B, 2.8B, 6.9B), with fitted scaling-law curves showing an inverted-U shape: winrate rises then falls as KL grows, demonstrating reward over-optimization in direct alignment algorithms analogous to classical RLHF reward hacking.",
+      "attribution": "Figure 1 (panel) from Rafailov et al. (2024), Scaling Laws for Reward Model Overoptimization in Direct Alignment Algorithms, arXiv:2406.02900 (CC BY 4.0)"
+    },
+    {
+      "id": "fig-taxonomy",
+      "paper_key": "this-survey",
+      "path": "figures/taxonomy.svg",
+      "caption": "Taxonomy of RL methods for LLMs, organized by reward source and optimization mechanism",
+      "attribution": "Original figure, this survey"
+    },
+    {
+      "id": "fig-timeline",
+      "paper_key": "this-survey",
+      "path": "figures/timeline.svg",
+      "caption": "Timeline of RL for LLMs: from RLHF foundations through the DPO/RLVR/agentic-RL branch points",
+      "attribution": "Original figure, this survey"
+    }
+  ]
+}

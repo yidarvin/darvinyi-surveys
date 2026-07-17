@@ -16,6 +16,14 @@
           "hero": "taxonomy.svg",
           "status": "done",
           "corpusSize": 189
+        },
+        {
+          "slug": "rl-in-llms",
+          "title": "Reinforcement Learning for Large Language Models",
+          "blurb": "From RLHF to verifiable rewards: how reward signals shape LLM alignment, reasoning, and agentic behavior.",
+          "hero": "taxonomy.svg",
+          "status": "draft",
+          "corpusSize": null
         }
       ]
     },

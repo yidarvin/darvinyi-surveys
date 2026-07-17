@@ -1,0 +1,83 @@
+<svg viewBox="0 0 1400 940" xmlns="http://www.w3.org/2000/svg" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+<rect x="0" y="0" width="1400" height="940" fill="#0a0e0f"/>
+<rect x="270.0" y="16" width="860" height="60" rx="8" fill="#141d21" stroke="#2dd4bf" stroke-width="1.5"/>
+<text x="700.0" y="42" font-size="17" fill="#e6edf0" text-anchor="middle" font-weight="600">RL for LLMs: reward source &#215; optimization mechanism</text>
+<text x="700.0" y="63" font-size="12.5" fill="#7d919b" text-anchor="middle">corpus: 141 papers &#8212; 83 placed on the two axes, 58 cross-cutting (root)</text>
+<rect x="340.0" y="168" width="245.5" height="56" rx="7" fill="#141d21" stroke="#1c8577" stroke-width="1.5"/>
+<text x="462.8" y="190" font-size="13" fill="#e6edf0" text-anchor="middle" font-weight="600">Actor-critic</text>
+<text x="462.8" y="206" font-size="13" fill="#e6edf0" text-anchor="middle" font-weight="600">policy gradient</text>
+<text x="462.8" y="216" font-size="10" fill="#7d919b" text-anchor="middle">PPO-style, learned value fn</text>
+<rect x="601.5" y="168" width="245.5" height="56" rx="7" fill="#141d21" stroke="#1c8577" stroke-width="1.5"/>
+<text x="724.2" y="190" font-size="13" fill="#e6edf0" text-anchor="middle" font-weight="600">Critic-free group</text>
+<text x="724.2" y="206" font-size="13" fill="#e6edf0" text-anchor="middle" font-weight="600">policy gradient</text>
+<text x="724.2" y="216" font-size="10" fill="#7d919b" text-anchor="middle">REINFORCE / RLOO / GRPO family</text>
+<rect x="863.0" y="168" width="245.5" height="56" rx="7" fill="#141d21" stroke="#1c8577" stroke-width="1.5"/>
+<text x="985.8" y="190" font-size="13" fill="#e6edf0" text-anchor="middle" font-weight="600">Offline direct</text>
+<text x="985.8" y="206" font-size="13" fill="#e6edf0" text-anchor="middle" font-weight="600">preference optimization</text>
+<text x="985.8" y="216" font-size="10" fill="#7d919b" text-anchor="middle">contrastive loss, no rollout</text>
+<rect x="1124.5" y="168" width="245.5" height="56" rx="7" fill="#141d21" stroke="#1c8577" stroke-width="1.5"/>
+<text x="1247.2" y="190" font-size="13" fill="#e6edf0" text-anchor="middle" font-weight="600">Self-training /</text>
+<text x="1247.2" y="206" font-size="13" fill="#e6edf0" text-anchor="middle" font-weight="600">rejection sampling</text>
+<text x="1247.2" y="216" font-size="10" fill="#7d919b" text-anchor="middle">filter-and-finetune bootstrap</text>
+<rect x="20" y="238.0" width="300" height="96" rx="7" fill="#141d21" stroke="#1c8577" stroke-width="1.5"/>
+<text x="35" y="280.0" font-size="13" fill="#e6edf0" font-weight="600">Learned preference / reward model</text>
+<text x="35" y="298.0" font-size="10.5" fill="#7d919b">human or AI pairwise feedback →</text>
+<text x="35" y="311.0" font-size="10.5" fill="#7d919b">(implicit) scalar reward</text>
+<rect x="340.0" y="238.0" width="245.5" height="96" rx="7" fill="#2dd4bf" fill-opacity="0.90" stroke="#2dd4bf" stroke-opacity="0.9" stroke-width="1.5"/>
+<text x="462.8" y="294.0" font-size="26" fill="#06211d" text-anchor="middle" font-weight="700">26</text>
+<rect x="601.5" y="238.0" width="245.5" height="96" rx="7" fill="#2dd4bf" fill-opacity="0.26" stroke="#2dd4bf" stroke-opacity="0.9" stroke-width="1.5"/>
+<text x="724.2" y="294.0" font-size="26" fill="#e6edf0" text-anchor="middle" font-weight="700">3</text>
+<rect x="863.0" y="238.0" width="245.5" height="96" rx="7" fill="#2dd4bf" fill-opacity="0.73" stroke="#2dd4bf" stroke-opacity="0.9" stroke-width="1.5"/>
+<text x="985.8" y="294.0" font-size="26" fill="#06211d" text-anchor="middle" font-weight="700">20</text>
+<rect x="1124.5" y="238.0" width="245.5" height="96" rx="7" fill="#10171a" fill-opacity="1" stroke="#1e2a30" stroke-opacity="0.6" stroke-width="1.5"/>
+<text x="1247.2" y="292.0" font-size="13" fill="#7d919b" text-anchor="middle">&#8212;</text>
+<rect x="20" y="348.0" width="300" height="96" rx="7" fill="#141d21" stroke="#1c8577" stroke-width="1.5"/>
+<text x="35" y="390.0" font-size="13" fill="#e6edf0" font-weight="600">Verifiable / rule-based reward</text>
+<text x="35" y="408.0" font-size="10.5" fill="#7d919b">exact-match, unit tests, formal/patch</text>
+<text x="35" y="421.0" font-size="10.5" fill="#7d919b">checks</text>
+<rect x="340.0" y="348.0" width="245.5" height="96" rx="7" fill="#2dd4bf" fill-opacity="0.24" stroke="#2dd4bf" stroke-opacity="0.9" stroke-width="1.5"/>
+<text x="462.8" y="404.0" font-size="26" fill="#e6edf0" text-anchor="middle" font-weight="700">2</text>
+<rect x="601.5" y="348.0" width="245.5" height="96" rx="7" fill="#2dd4bf" fill-opacity="0.51" stroke="#2dd4bf" stroke-opacity="0.9" stroke-width="1.5"/>
+<text x="724.2" y="404.0" font-size="26" fill="#e6edf0" text-anchor="middle" font-weight="700">12</text>
+<rect x="863.0" y="348.0" width="245.5" height="96" rx="7" fill="#10171a" fill-opacity="1" stroke="#1e2a30" stroke-opacity="0.6" stroke-width="1.5"/>
+<text x="985.8" y="402.0" font-size="13" fill="#7d919b" text-anchor="middle">&#8212;</text>
+<rect x="1124.5" y="348.0" width="245.5" height="96" rx="7" fill="#2dd4bf" fill-opacity="0.29" stroke="#2dd4bf" stroke-opacity="0.9" stroke-width="1.5"/>
+<text x="1247.2" y="404.0" font-size="26" fill="#e6edf0" text-anchor="middle" font-weight="700">4</text>
+<rect x="20" y="458.0" width="300" height="96" rx="7" fill="#141d21" stroke="#1c8577" stroke-width="1.5"/>
+<text x="35" y="500.0" font-size="13" fill="#e6edf0" font-weight="600">Process / step-level reward</text>
+<text x="35" y="518.0" font-size="10.5" fill="#7d919b">supervision on individual reasoning</text>
+<text x="35" y="531.0" font-size="10.5" fill="#7d919b">steps</text>
+<rect x="340.0" y="458.0" width="245.5" height="96" rx="7" fill="#2dd4bf" fill-opacity="0.24" stroke="#2dd4bf" stroke-opacity="0.9" stroke-width="1.5"/>
+<text x="462.8" y="514.0" font-size="26" fill="#e6edf0" text-anchor="middle" font-weight="700">2</text>
+<rect x="601.5" y="458.0" width="245.5" height="96" rx="7" fill="#2dd4bf" fill-opacity="0.21" stroke="#2dd4bf" stroke-opacity="0.9" stroke-width="1.5"/>
+<text x="724.2" y="514.0" font-size="26" fill="#e6edf0" text-anchor="middle" font-weight="700">1</text>
+<rect x="863.0" y="458.0" width="245.5" height="96" rx="7" fill="#10171a" fill-opacity="1" stroke="#1e2a30" stroke-opacity="0.6" stroke-width="1.5"/>
+<text x="985.8" y="512.0" font-size="13" fill="#7d919b" text-anchor="middle">&#8212;</text>
+<rect x="1124.5" y="458.0" width="245.5" height="96" rx="7" fill="#2dd4bf" fill-opacity="0.21" stroke="#2dd4bf" stroke-opacity="0.9" stroke-width="1.5"/>
+<text x="1247.2" y="514.0" font-size="26" fill="#e6edf0" text-anchor="middle" font-weight="700">1</text>
+<rect x="20" y="568.0" width="300" height="96" rx="7" fill="#141d21" stroke="#1c8577" stroke-width="1.5"/>
+<text x="35" y="610.0" font-size="13" fill="#e6edf0" font-weight="600">Environment / execution reward</text>
+<text x="35" y="628.0" font-size="10.5" fill="#7d919b">multi-turn agentic interaction outcome</text>
+<rect x="340.0" y="568.0" width="245.5" height="96" rx="7" fill="#2dd4bf" fill-opacity="0.26" stroke="#2dd4bf" stroke-opacity="0.9" stroke-width="1.5"/>
+<text x="462.8" y="624.0" font-size="26" fill="#e6edf0" text-anchor="middle" font-weight="700">3</text>
+<rect x="601.5" y="568.0" width="245.5" height="96" rx="7" fill="#2dd4bf" fill-opacity="0.35" stroke="#2dd4bf" stroke-opacity="0.9" stroke-width="1.5"/>
+<text x="724.2" y="624.0" font-size="26" fill="#e6edf0" text-anchor="middle" font-weight="700">6</text>
+<rect x="863.0" y="568.0" width="245.5" height="96" rx="7" fill="#2dd4bf" fill-opacity="0.24" stroke="#2dd4bf" stroke-opacity="0.9" stroke-width="1.5"/>
+<text x="985.8" y="624.0" font-size="26" fill="#e6edf0" text-anchor="middle" font-weight="700">2</text>
+<rect x="1124.5" y="568.0" width="245.5" height="96" rx="7" fill="#2dd4bf" fill-opacity="0.21" stroke="#2dd4bf" stroke-opacity="0.9" stroke-width="1.5"/>
+<text x="1247.2" y="624.0" font-size="26" fill="#e6edf0" text-anchor="middle" font-weight="700">1</text>
+<line x1="20" y1="679.0" x2="1370" y2="679.0" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="20" y="702.0" font-size="14" fill="#e6edf0" font-weight="600">root &#8212; sits above both axes (58 papers)</text>
+<rect x="20.0" y="724.0" width="440.0" height="88" rx="7" fill="#141d21" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="34.0" y="748.0" font-size="12.5" fill="#e6edf0" font-weight="600">Systems &amp; training infrastructure</text>
+<text x="34.0" y="768.0" font-size="10.5" fill="#7d919b">colocation/async engines, parallelism, rollout scheduling</text>
+<text x="34.0" y="794.0" font-size="20" fill="#2dd4bf" font-weight="700">18 papers</text>
+<rect x="480.0" y="724.0" width="440.0" height="88" rx="7" fill="#141d21" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="494.0" y="748.0" font-size="12.5" fill="#e6edf0" font-weight="600">Foundational RL theory &amp; human-feedback precursors</text>
+<text x="494.0" y="768.0" font-size="10.5" fill="#7d919b">REINFORCE, policy-gradient theorem, GAE, PPO, TAMER family</text>
+<text x="494.0" y="794.0" font-size="20" fill="#2dd4bf" font-weight="700">13 papers</text>
+<rect x="940.0" y="724.0" width="440.0" height="88" rx="7" fill="#141d21" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="954.0" y="748.0" font-size="12.5" fill="#e6edf0" font-weight="600">Cross-cutting evaluation, diagnosis &amp; algorithm-comparison</text>
+<text x="954.0" y="768.0" font-size="10.5" fill="#7d919b">reward hacking, sycophancy, RLHF-vs-DPO theory, broad recipes</text>
+<text x="954.0" y="794.0" font-size="20" fill="#2dd4bf" font-weight="700">27 papers</text>
+</svg>
