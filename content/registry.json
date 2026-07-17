@@ -30,8 +30,8 @@
           "title": "Immunophenotyping of Hematopoietic Cells by Flow Cytometry",
           "blurb": "Expected marker-expression profiles of every normal blood, marrow, and lymphoid population.",
           "hero": "taxonomy.svg",
-          "status": "draft",
-          "corpusSize": null
+          "status": "done",
+          "corpusSize": 67
         }
       ]
     }

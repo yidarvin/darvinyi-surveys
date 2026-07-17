@@ -1,4 +1,4 @@
-verdict: revise
+verdict: approve
 
 ## Critique round 1 -- 2026-07-17
 
@@ -101,3 +101,51 @@ REQUIRED findings: 1. ADVISORY findings: 2.
   R1 to confirm every bracketed number in its table cells resolves to the
   paper the cell's claim actually comes from (spot-check only; the systematic
   error is the three papers named in R1).
+
+## Critique round 2 -- 2026-07-17
+
+**Reviewer:** critic (fresh-eyes, Opus). Verdict: **approve**. Re-verified only
+the R1 fix and the objective gates against on-disk artifacts, per the rubric's
+anti-oscillation rule -- I did not re-audit the survey-wide numbering that round
+1 already swept and confirmed localized to Section 3.1.
+
+### R1 confirmed fixed
+
+Read Section 3.1 directly against `refs.md`. All three miscitations are now
+correct and confined to the intended member set `{1, 8, 9, 11, 30, 33, 55, 58}`:
+
+- **Li 2002** now cites **[9]** (refs.md [9] = Li 2002) -- opening problem
+  paragraph, mature-side paragraph, marker table surface-light-chain row, and
+  the sibling-contrast paragraph.
+- **Huang 2023** now cites **[55]** (refs.md [55] = Huang 2023) -- opening
+  paragraph, mature-side paragraph, marker table light-chain row.
+- **Velounias-Tull 2023** now cites **[58]** (refs.md [58] = Velounias-Tull
+  2023) -- opening paragraph, mature-side paragraph, CD10/CD38/CD27/IgD marker
+  rows.
+
+Mechanical check confirmed **no `[10]`, `[56]`, or `[57]` appears anywhere in
+Section 3.1** (lines 30-53), so the stale numbers that belonged to
+Rawstron/Kern/Seheult no longer misroute a verifier inside this node. Those
+three numbers remain correctly used in the sections outside 3.1 (untouched).
+
+### ADVISORY items from round 1
+
+- **A1 resolved:** the abstract-only-papers sentence now reads "Five of the
+  eight papers in this node ([1], [8], [9], [11], [30]) were accessible only at
+  abstract level" -- [10] correctly replaced by [9], and the named set
+  (Loken 1987, McKenna 2001, Li 2002, McKenna 2004, Challagundla 2014) matches
+  those five reference numbers.
+- **A2 spot-check:** the marker table's bracketed citations
+  ([1][33], [11], [8][11][33], [58], [33][58], [9][55], [30]) each resolve to a
+  paper whose claim supports the cell. No residual mismatch found.
+
+### Objective gates (all green on current artifacts)
+
+- `corpus_manifest.py coverage --strict`: OK (67 papers; 8 subareas 6-13 each;
+  none over half, none under 2).
+- `figure_manifest.py check`: OK (1 figure verified against the document).
+- `survey_pipeline.py status`: all 8 phases gate_passed.
+- `npm run check`: CHECK OK (green).
+
+REQUIRED findings this round: 0. ADVISORY: 0 open (both round-1 advisories
+resolved). Approving and marking done; setting `corpusSize` to 67.
