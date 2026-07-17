@@ -1,0 +1,11 @@
+{
+  "figures": [
+    {
+      "id": "taxonomy",
+      "paper_key": "this-survey",
+      "path": "figures/taxonomy.svg",
+      "caption": "Fixture taxonomy",
+      "attribution": "Figure from this fixture"
+    }
+  ]
+}
