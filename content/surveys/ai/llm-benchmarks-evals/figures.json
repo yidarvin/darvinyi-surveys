@@ -1,0 +1,109 @@
+{
+  "figures": [
+    {
+      "id": "fig-helm-taxonomy",
+      "paper_key": "liang2022-helm",
+      "path": "figures/fig-helm-taxonomy.png",
+      "caption": "The importance of taxonomy to HELM: prior benchmarks (left) test a single scenario with a narrow metric set, while HELM (right) crosses many scenarios (task/domain/language) against many metrics (accuracy, robustness, fairness, efficiency, etc.), making coverage gaps explicit.",
+      "attribution": "Figure from Liang et al. (2022), arXiv:2211.09110"
+    },
+    {
+      "id": "fig-sclar-format-spread",
+      "paper_key": "sclar2024-prompt-formatting-sensitivity",
+      "path": "figures/fig-sclar-format-spread.png",
+      "caption": "Task accuracy on the same benchmark item swings from 0.036 to 0.804 across meaning-preserving prompt-format variations (separator, casing, spacing) that differ only cosmetically from the original template.",
+      "attribution": "Figure from Sclar et al. (2023), arXiv:2310.11324"
+    },
+    {
+      "id": "fig-swebench-pipeline",
+      "paper_key": "jimenez2023-swebench",
+      "path": "figures/fig-swebench-pipeline.png",
+      "caption": "SWE-bench's task construction: a real GitHub issue and codebase snapshot are given to a model, which must generate a patch; the patch is graded by running the repository's pre- and post-PR unit tests.",
+      "attribution": "Figure from Jimenez et al. (2023), arXiv:2310.06770"
+    },
+    {
+      "id": "fig-mink-contamination-rate",
+      "paper_key": "shi2023-detecting-pretraining-data-mink",
+      "path": "figures/fig-mink-contamination-rate.png",
+      "caption": "Distribution of estimated contamination rates across books, showing a bimodal pattern with a large cluster of books at 80-100% overlap with pretraining data, illustrating how widespread suspected contamination can be once measured directly.",
+      "attribution": "Figure from Shi et al. (2023), arXiv:2310.16789"
+    },
+    {
+      "id": "fig-tinybenchmarks-error",
+      "paper_key": "polo2024-tinybenchmarks",
+      "path": "figures/fig-tinybenchmarks-error.png",
+      "caption": "Performance-estimation error versus number of examples used per scenario, across four major benchmark suites (Open LLM Leaderboard, MMLU, HELM, AlpacaEval): IRT-based item selection (IRT/IRT++) reaches low estimation error with far fewer examples than random sampling.",
+      "attribution": "Figure from Polo et al. (2024), arXiv:2402.14992"
+    },
+    {
+      "id": "fig-emergent-mirage-metric",
+      "paper_key": "schaeffer2023-emergent-abilities-mirage",
+      "path": "figures/fig-emergent-mirage-metric.png",
+      "caption": "The same BIG-Bench tasks show no sharp emergent jump once scored with a smooth metric (negative Brier score) instead of a discontinuous one, supporting the claim that many reported emergent abilities are an artifact of metric choice rather than a genuine capability discontinuity.",
+      "attribution": "Figure from Schaeffer et al. (2023), arXiv:2304.15004"
+    },
+    {
+      "id": "fig-decodingtrust-taxonomy",
+      "paper_key": "wang2023-decodingtrust",
+      "path": "figures/fig-decodingtrust-taxonomy.png",
+      "caption": "DecodingTrust's eight trustworthiness perspectives (toxicity, stereotypes, adversarial and out-of-distribution robustness, robustness to adversarial demonstrations, privacy, machine ethics, fairness), each decomposed into specific test constructions -- illustrating how a holistic safety benchmark is organized as a taxonomy rather than a single score.",
+      "attribution": "Figure from Wang et al. (2023), arXiv:2306.11698"
+    },
+    {
+      "id": "fig-harmbench-overview",
+      "paper_key": "mazeika2024-harmbench",
+      "path": "figures/fig-harmbench-overview.png",
+      "caption": "HarmBench's framework structure: four functional categories of harmful behavior (standard, contextual, copyright, multimodal) evaluated against a matrix of attack methods and target models with optional defenses, plus a taxonomy of harm categories (bioweapon, cybercrime, misinformation, etc.).",
+      "attribution": "Figure from Mazeika et al. (2024), arXiv:2402.04249"
+    },
+    {
+      "id": "fig-turpin-cot-bias",
+      "paper_key": "turpin2023-say-what-think",
+      "path": "figures/fig-turpin-cot-bias.png",
+      "caption": "Accuracy drops of 4.7 to 36.3 points when a biasing cue is added to the context, shown across zero-shot and few-shot prompting conditions for GPT-3.5 and Claude 1.0, while models' chain-of-thought explanations rarely mention the biasing cue as the reason for their answer.",
+      "attribution": "Figure from Turpin et al. (2023), arXiv:2305.04388"
+    },
+    {
+      "id": "fig-gpqa-pipeline",
+      "paper_key": "rein2023-gpqa",
+      "path": "figures/fig-gpqa-pipeline.png",
+      "caption": "GPQA's expert-validation and non-expert-adversarial-filtering pipeline: a question passes multiple rounds of expert review and revision, then is only included in the harder Diamond subset if non-expert validators (given internet access and significant time) still answer it incorrectly.",
+      "attribution": "Figure from Rein et al. (2023), arXiv:2311.12022"
+    },
+    {
+      "id": "fig-alpacaeval-length-bias",
+      "paper_key": "dubois2024-length-controlled-alpacaeval",
+      "path": "figures/fig-alpacaeval-length-bias.png",
+      "caption": "Standard AlpacaEval win rates change dramatically when the same model is prompted to be concise versus verbose (e.g. GPT-4-1106-preview: 22.9 vs 64.3), while the length-controlled variant collapses this spread (41.9 vs 51.6), demonstrating a length bias in the underlying LLM-judge metric and its correction.",
+      "attribution": "Figure from Dubois et al. (2024), arXiv:2404.04475"
+    },
+    {
+      "id": "fig-scienceworld-map",
+      "paper_key": "wang2022scienceworld",
+      "path": "figures/fig-scienceworld-map.png",
+      "caption": "ScienceWorld's simulated house-and-grounds environment (kitchen, workshop, greenhouse, foundry, etc.) that an agent must navigate and interact with across many rooms and objects to complete multi-step elementary-science tasks.",
+      "attribution": "Figure from Wang et al. (2022), arXiv:2203.07540"
+    },
+    {
+      "id": "fig-bigcodebench-pipeline",
+      "paper_key": "zhuo2024-bigcodebench",
+      "path": "figures/fig-bigcodebench-pipeline.png",
+      "caption": "BigCodeBench's three-stage task construction: LLM-assisted data synthesis from real code, iterative human-LLM program refactoring and test-case generation, and a multi-step human curation pass (examine, pre-evaluate, cross-check) before a task enters the benchmark.",
+      "attribution": "Figure from Zhuo et al. (2024), arXiv:2406.15877"
+    },
+    {
+      "id": "fig-taxonomy",
+      "paper_key": "this-survey",
+      "path": "figures/taxonomy.svg",
+      "caption": "Two-axis taxonomy of the 189-paper corpus. Axis 1 (target of measurement) groups papers by what capability or property is evaluated: static knowledge/code, reasoning process depth, agentic behavior, safety/robustness properties, or the meta-evaluation process itself. Axis 2 (methodological function, applying within every Axis-1 node) separates papers that construct a new evaluation artifact from papers that audit or critique the validity of an existing one. Original figure, this survey",
+      "attribution": "Original figure, this survey"
+    },
+    {
+      "id": "fig-timeline",
+      "paper_key": "this-survey",
+      "path": "figures/timeline.svg",
+      "caption": "Evolution of LLM and agent benchmark evaluation, 2018-2026, from the GLUE-era leaderboard paradigm through saturation-driven successors, the chain-of-thought and few-shot-sensitivity reckoning, the 2023 contamination/LLM-judge/agentic-eval explosion, and the 2024-2026 critique-and-repair era. Original figure, this survey",
+      "attribution": "Original figure, this survey"
+    }
+  ]
+}

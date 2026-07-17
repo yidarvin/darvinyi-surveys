@@ -12,8 +12,9 @@ language and Claude Code deduces the field and topic slug, stamps both files,
 builds with the `survey-and-taxonomy-research` skill, and runs the critic loop.
 See `CLAUDE.md` for the exact workflow.
 
-| field | topic | title | status |
-|-------|-------|-------|--------|
+| field | topic                | title                                  | status  |
+|-------|----------------------|----------------------------------------|---------|
+| ai    | llm-benchmarks-evals | LLM & Agent Benchmarks and Evaluations | PENDING |
 
 <!--
 Row shape once populated:

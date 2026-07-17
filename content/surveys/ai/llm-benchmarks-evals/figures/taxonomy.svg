@@ -1,0 +1,92 @@
+<svg viewBox="0 0 1500 980" xmlns="http://www.w3.org/2000/svg" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+<rect x="0" y="0" width="1500" height="980" fill="#10171a"/>
+<rect x="510.0" y="16" width="480" height="56" rx="8" fill="#141d21" stroke="#2dd4bf" stroke-width="1.5"/>
+<text x="750.0" y="40" font-size="16" fill="#e6edf0" text-anchor="middle" font-weight="600">LLM &amp; Agent Benchmarks and Evaluations</text>
+<text x="750.0" y="60" font-size="12.5" fill="#7d919b" text-anchor="middle" font-weight="400">corpus: 189 papers</text>
+<line x1="750.0" y1="72" x2="155.0" y2="130" stroke="#1e2a30" stroke-width="1.5"/>
+<rect x="30.0" y="130" width="250" height="58" rx="8" fill="#141d21" stroke="#1c8577" stroke-width="1.5"/>
+<text x="155.0" y="152" font-size="13" fill="#e6edf0" text-anchor="middle" font-weight="600">target/static-knowledge-</text>
+<text x="155.0" y="168" font-size="13" fill="#e6edf0" text-anchor="middle" font-weight="600">and-code</text>
+<text x="155.0" y="182" font-size="11.5" fill="#2dd4bf" text-anchor="middle" font-weight="400">34 papers</text>
+<line x1="750.0" y1="72" x2="452.5" y2="130" stroke="#1e2a30" stroke-width="1.5"/>
+<rect x="327.5" y="130" width="250" height="58" rx="8" fill="#141d21" stroke="#1c8577" stroke-width="1.5"/>
+<text x="452.5" y="152" font-size="13" fill="#e6edf0" text-anchor="middle" font-weight="600">target/reasoning-</text>
+<text x="452.5" y="168" font-size="13" fill="#e6edf0" text-anchor="middle" font-weight="600">process-depth</text>
+<text x="452.5" y="182" font-size="11.5" fill="#2dd4bf" text-anchor="middle" font-weight="400">14 papers</text>
+<line x1="750.0" y1="72" x2="750.0" y2="130" stroke="#1e2a30" stroke-width="1.5"/>
+<rect x="625.0" y="130" width="250" height="58" rx="8" fill="#141d21" stroke="#1c8577" stroke-width="1.5"/>
+<text x="750.0" y="152" font-size="13" fill="#e6edf0" text-anchor="middle" font-weight="600">target/agentic-</text>
+<text x="750.0" y="168" font-size="13" fill="#e6edf0" text-anchor="middle" font-weight="600">behavior</text>
+<text x="750.0" y="182" font-size="11.5" fill="#2dd4bf" text-anchor="middle" font-weight="400">41 papers</text>
+<line x1="750.0" y1="72" x2="1047.5" y2="130" stroke="#1e2a30" stroke-width="1.5"/>
+<rect x="922.5" y="130" width="250" height="58" rx="8" fill="#141d21" stroke="#1c8577" stroke-width="1.5"/>
+<text x="1047.5" y="152" font-size="13" fill="#e6edf0" text-anchor="middle" font-weight="600">target/safety-and-</text>
+<text x="1047.5" y="168" font-size="13" fill="#e6edf0" text-anchor="middle" font-weight="600">robustness-properties</text>
+<text x="1047.5" y="182" font-size="11.5" fill="#2dd4bf" text-anchor="middle" font-weight="400">29 papers</text>
+<line x1="750.0" y1="72" x2="1345.0" y2="130" stroke="#1e2a30" stroke-width="1.5"/>
+<rect x="1220.0" y="130" width="250" height="58" rx="8" fill="#141d21" stroke="#1c8577" stroke-width="1.5"/>
+<text x="1345.0" y="152" font-size="13" fill="#e6edf0" text-anchor="middle" font-weight="600">target/meta-</text>
+<text x="1345.0" y="168" font-size="13" fill="#e6edf0" text-anchor="middle" font-weight="600">evaluation-process</text>
+<text x="1345.0" y="182" font-size="11.5" fill="#2dd4bf" text-anchor="middle" font-weight="400">71 papers</text>
+<line x1="155.0" y1="224" x2="155.0" y2="234" stroke="#1e2a30" stroke-width="1.5"/>
+<line x1="155.0" y1="188" x2="155.0" y2="234" stroke="#1e2a30" stroke-width="1.5"/>
+<rect x="45.0" y="234" width="220" height="40" rx="6" fill="#0d1315" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="155.0" y="252" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">static-benchmarks</text>
+<text x="155.0" y="267" font-size="10.5" fill="#7d919b" text-anchor="middle" font-weight="400">21 papers</text>
+<line x1="155.0" y1="278" x2="155.0" y2="282" stroke="#1e2a30" stroke-width="1.5"/>
+<rect x="45.0" y="282" width="220" height="40" rx="6" fill="#0d1315" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="155.0" y="300" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">code-benchmarks</text>
+<text x="155.0" y="315" font-size="10.5" fill="#7d919b" text-anchor="middle" font-weight="400">13 papers</text>
+<line x1="452.5" y1="224" x2="452.5" y2="234" stroke="#1e2a30" stroke-width="1.5"/>
+<line x1="452.5" y1="188" x2="452.5" y2="234" stroke="#1e2a30" stroke-width="1.5"/>
+<rect x="342.5" y="234" width="220" height="40" rx="6" fill="#0d1315" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="452.5" y="252" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">reasoning-depth</text>
+<text x="452.5" y="267" font-size="10.5" fill="#7d919b" text-anchor="middle" font-weight="400">14 papers</text>
+<line x1="750.0" y1="224" x2="750.0" y2="234" stroke="#1e2a30" stroke-width="1.5"/>
+<line x1="750.0" y1="188" x2="750.0" y2="234" stroke="#1e2a30" stroke-width="1.5"/>
+<rect x="640.0" y="234" width="220" height="40" rx="6" fill="#0d1315" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="750.0" y="252" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">agentic-benchmarks</text>
+<text x="750.0" y="267" font-size="10.5" fill="#7d919b" text-anchor="middle" font-weight="400">24 papers</text>
+<line x1="750.0" y1="278" x2="750.0" y2="282" stroke="#1e2a30" stroke-width="1.5"/>
+<rect x="640.0" y="282" width="220" height="40" rx="6" fill="#0d1315" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="750.0" y="300" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">multistep-sandbox</text>
+<text x="750.0" y="315" font-size="10.5" fill="#7d919b" text-anchor="middle" font-weight="400">17 papers</text>
+<line x1="1047.5" y1="224" x2="1047.5" y2="234" stroke="#1e2a30" stroke-width="1.5"/>
+<line x1="1047.5" y1="188" x2="1047.5" y2="234" stroke="#1e2a30" stroke-width="1.5"/>
+<rect x="937.5" y="234" width="220" height="40" rx="6" fill="#0d1315" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="1047.5" y="252" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">robustness-adversarial</text>
+<text x="1047.5" y="267" font-size="10.5" fill="#7d919b" text-anchor="middle" font-weight="400">14 papers</text>
+<line x1="1047.5" y1="278" x2="1047.5" y2="282" stroke="#1e2a30" stroke-width="1.5"/>
+<rect x="937.5" y="282" width="220" height="40" rx="6" fill="#0d1315" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="1047.5" y="300" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">safety-evaluation</text>
+<text x="1047.5" y="315" font-size="10.5" fill="#7d919b" text-anchor="middle" font-weight="400">15 papers</text>
+<line x1="1345.0" y1="224" x2="1345.0" y2="234" stroke="#1e2a30" stroke-width="1.5"/>
+<line x1="1345.0" y1="188" x2="1345.0" y2="234" stroke="#1e2a30" stroke-width="1.5"/>
+<rect x="1235.0" y="234" width="220" height="40" rx="6" fill="#0d1315" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="1345.0" y="252" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">eval-methodology</text>
+<text x="1345.0" y="267" font-size="10.5" fill="#7d919b" text-anchor="middle" font-weight="400">14 papers</text>
+<line x1="1345.0" y1="278" x2="1345.0" y2="282" stroke="#1e2a30" stroke-width="1.5"/>
+<rect x="1235.0" y="282" width="220" height="40" rx="6" fill="#0d1315" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="1345.0" y="300" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">llm-judge-human-eval</text>
+<text x="1345.0" y="315" font-size="10.5" fill="#7d919b" text-anchor="middle" font-weight="400">19 papers</text>
+<line x1="1345.0" y1="326" x2="1345.0" y2="330" stroke="#1e2a30" stroke-width="1.5"/>
+<rect x="1235.0" y="330" width="220" height="40" rx="6" fill="#0d1315" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="1345.0" y="348" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">contamination</text>
+<text x="1345.0" y="363" font-size="10.5" fill="#7d919b" text-anchor="middle" font-weight="400">14 papers</text>
+<line x1="1345.0" y1="374" x2="1345.0" y2="378" stroke="#1e2a30" stroke-width="1.5"/>
+<rect x="1235.0" y="378" width="220" height="40" rx="6" fill="#0d1315" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="1345.0" y="396" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">benchmark-critique</text>
+<text x="1345.0" y="411" font-size="10.5" fill="#7d919b" text-anchor="middle" font-weight="400">14 papers</text>
+<line x1="1345.0" y1="422" x2="1345.0" y2="426" stroke="#1e2a30" stroke-width="1.5"/>
+<rect x="1235.0" y="426" width="220" height="40" rx="6" fill="#0d1315" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="1345.0" y="444" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">efficiency-evaluation</text>
+<text x="1345.0" y="459" font-size="10.5" fill="#7d919b" text-anchor="middle" font-weight="400">10 papers</text>
+<text x="60" y="514" font-size="14" fill="#e6edf0" text-anchor="start" font-weight="600">Second axis (applies within every node above): methodological function</text>
+<rect x="60" y="540" width="1380" height="34" rx="6" fill="#10171a" stroke="#1e2a30" stroke-width="1.5"/>
+<rect x="60" y="540" width="1014.9206349206349" height="34" rx="6" fill="#1c8577"/>
+<rect x="1074.920634920635" y="540" width="365.07936507936506" height="34" rx="6" fill="#f2757f" opacity="0.55"/>
+<text x="567.4603174603175" y="562" font-size="12.5" fill="#06211d" text-anchor="middle" font-weight="600">function/construction — 139 papers</text>
+<text x="1257.4603174603176" y="562" font-size="12.5" fill="#2a0a0d" text-anchor="middle" font-weight="600">function/audit-or-critique — 50</text>
+<text x="60" y="600" font-size="11.5" fill="#7d919b" text-anchor="start" font-weight="400">construction = proposes a new benchmark, dataset, environment, judge, or scoring method</text>
+<text x="60" y="618" font-size="11.5" fill="#7d919b" text-anchor="start" font-weight="400">audit-or-critique = tests the validity of an existing evaluation practice or model behavior (contamination, bias, saturation, cost)</text>
+</svg>

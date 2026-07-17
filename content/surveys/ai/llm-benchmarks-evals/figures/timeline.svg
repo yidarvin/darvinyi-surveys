@@ -1,0 +1,67 @@
+<svg viewBox="0 0 1600 620" xmlns="http://www.w3.org/2000/svg" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+<rect x="0" y="0" width="1600" height="620" fill="#10171a"/>
+<line x1="90" y1="310.0" x2="1540" y2="310.0" stroke="#1e2a30" stroke-width="2"/>
+<circle cx="90.0" cy="310.0" r="6" fill="#2dd4bf"/>
+<text x="90.0" y="286.0" font-size="15" fill="#2dd4bf" text-anchor="middle" font-weight="700">2018</text>
+<line x1="90.0" y1="304.0" x2="90.0" y2="250.0" stroke="#1e2a30" stroke-width="1.5"/>
+<rect x="-40.0" y="174.0" width="260" height="76" rx="8" fill="#141d21" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="90.0" y="198.0" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">GLUE launches the</text>
+<text x="90.0" y="218.0" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">standardized multi-task</text>
+<text x="90.0" y="238.0" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">leaderboard paradigm</text>
+<circle cx="297.1428571428571" cy="310.0" r="6" fill="#2dd4bf"/>
+<text x="297.1428571428571" y="348.0" font-size="15" fill="#2dd4bf" text-anchor="middle" font-weight="700">2019</text>
+<line x1="297.1428571428571" y1="316.0" x2="297.1428571428571" y2="370.0" stroke="#1e2a30" stroke-width="1.5"/>
+<rect x="167.1428571428571" y="370.0" width="260" height="76" rx="8" fill="#141d21" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="297.1428571428571" y="394.0" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">SuperGLUE reacts to GLUE</text>
+<text x="297.1428571428571" y="414.0" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">saturation within a year;</text>
+<text x="297.1428571428571" y="434.0" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">HellaSwag adds adversarial filtering</text>
+<circle cx="504.2857142857143" cy="310.0" r="6" fill="#2dd4bf"/>
+<text x="504.2857142857143" y="286.0" font-size="15" fill="#2dd4bf" text-anchor="middle" font-weight="700">2020</text>
+<line x1="504.2857142857143" y1="304.0" x2="504.2857142857143" y2="250.0" stroke="#1e2a30" stroke-width="1.5"/>
+<rect x="374.2857142857143" y="174.0" width="260" height="76" rx="8" fill="#141d21" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="504.2857142857143" y="198.0" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">GPT-3 makes few-shot</text>
+<text x="504.2857142857143" y="218.0" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">prompting itself the</text>
+<text x="504.2857142857143" y="238.0" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">evaluation paradigm</text>
+<circle cx="711.4285714285714" cy="310.0" r="6" fill="#2dd4bf"/>
+<text x="711.4285714285714" y="348.0" font-size="15" fill="#2dd4bf" text-anchor="middle" font-weight="700">2021</text>
+<line x1="711.4285714285714" y1="316.0" x2="711.4285714285714" y2="370.0" stroke="#1e2a30" stroke-width="1.5"/>
+<rect x="581.4285714285714" y="370.0" width="260" height="96" rx="8" fill="#141d21" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="711.4285714285714" y="394.0" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">MMLU broadens to</text>
+<text x="711.4285714285714" y="414.0" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">knowledge-heavy multitask</text>
+<text x="711.4285714285714" y="434.0" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">eval; Dynabench proposes</text>
+<text x="711.4285714285714" y="454.0" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">human-in-the-loop benchmarking</text>
+<circle cx="918.5714285714286" cy="310.0" r="6" fill="#2dd4bf"/>
+<text x="918.5714285714286" y="286.0" font-size="15" fill="#2dd4bf" text-anchor="middle" font-weight="700">2022</text>
+<line x1="918.5714285714286" y1="304.0" x2="918.5714285714286" y2="250.0" stroke="#1e2a30" stroke-width="1.5"/>
+<rect x="788.5714285714286" y="154.0" width="260" height="96" rx="8" fill="#141d21" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="918.5714285714286" y="178.0" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">HELM and BIG-bench scale</text>
+<text x="918.5714285714286" y="198.0" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">holistic, collaborative eval;</text>
+<text x="918.5714285714286" y="218.0" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">Chain-of-Thought reframes</text>
+<text x="918.5714285714286" y="238.0" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">what “reasoning” eval probes</text>
+<circle cx="1125.7142857142858" cy="310.0" r="6" fill="#2dd4bf"/>
+<text x="1125.7142857142858" y="348.0" font-size="15" fill="#2dd4bf" text-anchor="middle" font-weight="700">2023</text>
+<line x1="1125.7142857142858" y1="316.0" x2="1125.7142857142858" y2="370.0" stroke="#1e2a30" stroke-width="1.5"/>
+<rect x="995.7142857142858" y="370.0" width="260" height="96" rx="8" fill="#141d21" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="1125.7142857142858" y="394.0" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">Contamination + LLM-judge +</text>
+<text x="1125.7142857142858" y="414.0" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">agentic eval all break open at once:</text>
+<text x="1125.7142857142858" y="434.0" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">MT-Bench, Min-K% Prob, GPQA,</text>
+<text x="1125.7142857142858" y="454.0" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">WebArena / AgentBench / GAIA / SWE-bench</text>
+<circle cx="1332.857142857143" cy="310.0" r="6" fill="#2dd4bf"/>
+<text x="1332.857142857143" y="286.0" font-size="15" fill="#2dd4bf" text-anchor="middle" font-weight="700">2024</text>
+<line x1="1332.857142857143" y1="304.0" x2="1332.857142857143" y2="250.0" stroke="#1e2a30" stroke-width="1.5"/>
+<rect x="1202.857142857143" y="154.0" width="260" height="96" rx="8" fill="#141d21" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="1332.857142857143" y="178.0" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">Critique-and-repair era:</text>
+<text x="1332.857142857143" y="198.0" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">“Are We Done with MMLU?”, GSM1k,</text>
+<text x="1332.857142857143" y="218.0" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">tinyBenchmarks, OSWorld,</text>
+<text x="1332.857142857143" y="238.0" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">Length-Controlled AlpacaEval</text>
+<circle cx="1540.0" cy="310.0" r="6" fill="#2dd4bf"/>
+<text x="1540.0" y="348.0" font-size="15" fill="#2dd4bf" text-anchor="middle" font-weight="700">2025-26</text>
+<line x1="1540.0" y1="316.0" x2="1540.0" y2="370.0" stroke="#1e2a30" stroke-width="1.5"/>
+<rect x="1410.0" y="370.0" width="260" height="96" rx="8" fill="#141d21" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="1540.0" y="394.0" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">Meta-evaluation matures:</text>
+<text x="1540.0" y="414.0" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">Leaderboard Illusion, Fluid</text>
+<text x="1540.0" y="434.0" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">Benchmarking, long-horizon agent</text>
+<text x="1540.0" y="454.0" font-size="12" fill="#e6edf0" text-anchor="middle" font-weight="400">benchmarks, statistical eval guarantees</text>
+<text x="800.0" y="30" font-size="18" fill="#e6edf0" text-anchor="middle" font-weight="700">Evolution of LLM &amp; Agent Benchmark Evaluation, 2018–2026</text>
+<text x="800.0" y="606" font-size="11" fill="#7d919b" text-anchor="middle" font-weight="400">Timeline reflects the corpus's paper-year distribution and this survey's evolution narrative (Section 4).</text>
+</svg>

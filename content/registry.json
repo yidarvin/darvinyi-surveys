@@ -2,5 +2,22 @@
   "title": "darvinyi surveys",
   "subtitle": "living surveys and taxonomies of scientific subfields",
   "url": "https://surveys.darvinyi.com",
-  "fields": []
+  "fields": [
+    {
+      "slug": "ai",
+      "name": "Artificial Intelligence",
+      "blurb": "Machine intelligence: models, agents, and the systems built around them.",
+      "graphic": "ai.svg",
+      "topics": [
+        {
+          "slug": "llm-benchmarks-evals",
+          "title": "LLM & Agent Benchmarks and Evaluations",
+          "blurb": "How the field measures capability, and what the numbers miss.",
+          "hero": "taxonomy.svg",
+          "status": "draft",
+          "corpusSize": null
+        }
+      ]
+    }
+  ]
 }
