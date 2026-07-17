@@ -35,6 +35,27 @@ and each builder resolution is appended below as a dated section, forming the
 audit trail. `scripts/validate.py` enforces that a `done` topic has line 1
 `verdict: approve`.
 
+On `verdict: revise`, list every REQUIRED finding as a markdown checkbox,
+labeled, one per line:
+
+```
+REQUIRED:
+- [ ] R1: <finding>
+- [ ] R2: <finding>
+```
+
+The builder toggles `- [ ]` to `- [x]` in place as each finding is resolved
+(a narrow exception to append-only, scoped to checkbox state within the
+still-open round -- never rewrite the surrounding prose, and never re-open a
+box a prior round already closed unless a later edit visibly regressed it,
+per Anti-oscillation below). This is what makes resolution progress durable
+across a token-limit death: `python3 scripts/survey_pipeline.py
+critique-status <survey_dir>` reads the checkboxes directly and reports
+exactly which findings are still open, so a resuming session never has to
+recall which fixes it already made. A critique predating this convention (no
+checkboxes) is not retroactively broken -- `critique-status` reports it
+can't verify resolution mechanically and defers to the text.
+
 ## REQUIRED (blocks approval)
 
 - **Corpus adequacy.** 100+ papers, or a smaller N with an explicit, convincing

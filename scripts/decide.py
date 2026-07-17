@@ -22,6 +22,13 @@ Priority order for `next` (a topic can only be in one bucket at a time):
 
 A validation failure short-circuits everything: `next` reports 'error' rather
 than acting on state it cannot trust.
+
+This module only sees the registry/queue -- a topic stays 'pending' for its
+entire build (Phases 1-8 of the survey skill), so a 'build' action here can
+mean either "not started" or "interrupted mid-build, resume it." Before
+starting Phase 1 from scratch on a 'build' action, check
+`python3 scripts/survey_pipeline.py scan` for a `.pipeline/` dir already on
+disk for that topic -- see CLAUDE.md's "Resuming an interrupted build" section.
 """
 from __future__ import annotations
 

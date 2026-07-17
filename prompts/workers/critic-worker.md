@@ -31,6 +31,7 @@ than eyeballing file listings:
 ```
 python3 scripts/corpus_manifest.py coverage {{SURVEY_DIR}}/corpus.json --strict
 python3 scripts/figure_manifest.py check {{SURVEY_DIR}}/figures.json --document {{SURVEY_DIR}}/survey.md
+python3 scripts/survey_pipeline.py status {{SURVEY_DIR}}         # full 8-phase gate recheck from disk
 python3 scripts/survey_pipeline.py notes-status {{SURVEY_DIR}}   # Phase 3 completeness, if .pipeline/ still exists
 npm run check
 ```
@@ -45,7 +46,11 @@ npm run check
   line 1 exactly `verdict: approve` or `verdict: revise` (machine-parsed --
   nothing else on that line), followed by a dated
   `## Critique round N -- {{DATE}}` section with your findings split into
-  REQUIRED and ADVISORY per the rubric.
+  REQUIRED and ADVISORY per the rubric. On `revise`, list every REQUIRED
+  finding as a labeled checkbox (`- [ ] R1: ...`) per the rubric's Verdict
+  file section -- this is what lets a resuming builder session (after a
+  token-limit death) mechanically see which findings are still open via
+  `survey_pipeline.py critique-status`, instead of re-deriving it from prose.
 - **On approve**, run `python3 scripts/mark.py {{FIELD}}/{{TOPIC}} done` and
   set `corpusSize` in `content/registry.json` from `corpus.json`'s paper
   count yourself -- don't leave the mechanical follow-through to whoever

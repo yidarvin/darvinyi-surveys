@@ -42,8 +42,21 @@ do this, without further prompting:
    python3 scripts/new_topic.py --field <f> --topic <t> --title "<T>" \
      [--blurb "..."] [--field-name "<N>" --field-blurb "..." if the field is new]
    ```
-4. **Build** (Sonnet, effort high -- see Models below). Run the
-   `survey-and-taxonomy-research` skill with output dir
+4. **Build** (Sonnet, effort high -- see Models below). Before any fan-out,
+   record the skill's own Phase 1 (scope statement, 2-4 driving problems, and
+   the subareas you plan to dispatch Phase 2 discovery workers across) to
+   `.pipeline/run.json`:
+   ```
+   python3 scripts/survey_pipeline.py run-init content/surveys/<f>/<t> \
+     --field <f> --topic <t> --title "<T>" --scope "<one-line scope>" \
+     --driving-problems "<problem1>|<problem2>|<problem3>" \
+     --planned-subareas "<subarea1>|<subarea2>|..."
+   ```
+   This is what makes the plan itself durable: if a token-limit death hits
+   later in the build, a fresh session resumes from what's recorded here
+   instead of re-deriving scope and possibly building a *different* survey
+   than the half-finished one on disk (see "Resuming an interrupted build"
+   below). Then run the `survey-and-taxonomy-research` skill with output dir
    `content/surveys/<f>/<t>/`, targeting **100+ papers** (fewer only with an
    explicit, convincing justification that the subfield is genuinely small --
    the critic checks this). Drive the skill's Phase 2 (discovery) and Phase 3
@@ -73,6 +86,12 @@ do this, without further prompting:
 ### By-hand verbs (for power use, once fields/topics exist)
 
 - **"queue status"** -- run `python3 scripts/decide.py status`, report it.
+- **"resume" / "resume `<field>/<topic>`"** -- run
+  `python3 scripts/survey_pipeline.py scan`, then `status` on the (chosen)
+  interrupted build, and continue from the printed next command. See
+  "Resuming an interrupted build after a token refresh" below -- this is the
+  procedure to follow any time a build session was cut short, not just when
+  explicitly asked to "resume."
 - **"critique <field>/<topic>"** -- run the critique step alone on a `draft` topic.
 - **"resolve critiques"** -- work every `content/critiques/*.md` with line 1
   `verdict: revise`, in queue order.
@@ -105,8 +124,9 @@ to re-run -- each one only ever acts on what's actually missing or invalid
 on disk, never on what a message claimed happened.
 
 Worker prompt templates live in `prompts/workers/` (`discovery-worker.md`,
-`reader-worker.md`, `critic-worker.md`, filled in with `{{...}}`
-placeholders per dispatch) and encode the two rules that matter most:
+`reader-worker.md`, `section-worker.md`, `critic-worker.md`, filled in with
+`{{...}}` placeholders per dispatch) and encode the two rules that matter
+most:
 
 - **One level of fan-out, ever.** A discovery or reader worker must not
   spawn its own sub-agents to "parallelize" a big batch -- it reads
@@ -120,15 +140,26 @@ placeholders per dispatch) and encode the two rules that matter most:
   makes partial progress survive a dead or rate-limited worker -- losing a
   worker loses only its current in-flight paper, never everything it had
   already read.
+- **Checkpoint at every phase boundary too, not just per-item.** After a
+  phase's gate passes, run `python3 scripts/survey_pipeline.py run-set
+  content/surveys/<f>/<t> --phase N --status gate_passed` and flush any
+  in-context draft to disk before moving on. The coordinator's own context is
+  the one thing that does not survive a token-limit death -- never let
+  unflushed progress (a half-written taxonomy derivation, an evolution
+  narrative drafted but not yet written to a `.pipeline/sections/` fragment)
+  accumulate there. See "Resuming an interrupted build" below for what this
+  buys.
 
 ### The converge loop
 
-Drive Phase 2 and Phase 3 the same way:
+Drive Phase 2 and Phase 3 the same way -- and Phase 7's heaviest step (one
+method-treatment section per taxonomy node, `prompts/workers/section-worker.md`)
+too, once Phase 5 has placed every paper on the taxonomy:
 
 1. Dispatch one round of workers over the current gap (missing/invalid
-   candidates or notes, from `candidates-status` / `next-keys`), each with
-   `run_in_background: true`, all in a single message so they run
-   concurrently.
+   candidates or notes, from `candidates-status` / `next-keys` / Phase 7's
+   `sections-status`), each with `run_in_background: true`, all in a single
+   message so they run concurrently.
 2. Wait for the round's completion notifications rather than polling the
    filesystem in a sleep loop -- background-task notifications arrive on
    their own.
@@ -163,6 +194,38 @@ Drive Phase 2 and Phase 3 the same way:
   (a blocked host, a real 404). Say so explicitly in the final report
   rather than writing a placeholder note to force the gate to pass.
 
+## Resuming an interrupted build after a token refresh
+
+A survey build is long by design (100+ papers, read for real) and can
+genuinely run out of tokens mid-build. That is not a failure to route around
+-- it is expected, and the doctrine above already makes every fan-out phase
+resumable by construction. What follows is the deterministic procedure a
+*fresh* session (no memory of the interrupted one) follows to pick a build
+back up, rather than guessing or -- worse -- re-deriving scope from scratch
+and silently building a different survey than the half-finished one on disk.
+
+1. Run `python3 scripts/survey_pipeline.py scan`. It lists every topic that
+   is not `done` and has a `.pipeline/` directory -- i.e. every interrupted
+   build. (If more than one comes back, ask me which to resume.)
+2. Run `python3 scripts/survey_pipeline.py status content/surveys/<f>/<t>`
+   on the target. It re-derives the true state of all 8 phases straight from
+   disk (never trusting `.pipeline/run.json`'s own claims over what the
+   actual gate checks say), prints the current phase and the exact next
+   command, and self-heals `run.json` to match what it just measured.
+3. **Do not re-derive scope, driving problems, or planned subareas.** Read
+   them from `run.json` (`status` prints a loud warning if they were never
+   recorded -- e.g. a build that predates this convention -- in which case
+   re-derive them carefully from `corpus.json`'s scope and the subareas
+   already represented among existing papers, not from the original request
+   in isolation).
+4. Resume the phase `status` printed, using its normal converge loop or next
+   command. For Phase 2, 3, and Phase 7's per-node fan-out, that means
+   dispatching workers only over the `missing`/`invalid`/`stub` set the
+   relevant `*-status` command reports -- completed per-item work is never
+   redone.
+5. Keep checkpointing per the Autonomous build doctrine above as you go, so
+   the *next* interruption, if any, is just as cheap to resume from.
+
 ## Models and effort
 
 Builder and critic are different roles and should run as different agents, so
@@ -194,23 +257,30 @@ Full detail: `prompts/critique-rubric.md`.
 - `content/surveys/<field>/<topic>/.pipeline/` -- **working artifacts only,
   never a deliverable** (gitignored at any depth by the `.pipeline/` rule in
   `.gitignore`). Written and read by `scripts/survey_pipeline.py` during an
-  in-progress build; see the Autonomous build doctrine above.
-  `candidates/<subarea>.json` (Phase 2 discovery output, one file per
-  subarea), `corrections.json` (bibliographic fixes flagged mid-build),
-  `notes/<key>.json` (Phase 3 structured notes, one file per corpus paper,
-  keyed to `corpus.json`'s `key`), `claims/<key>.claim` (in-flight markers so
-  a second dispatch round doesn't reassign a paper a live worker still has).
-  Safe to delete entirely once the survey reaches `done` -- everything in it
-  is either already folded into `corpus.json`/`survey.md`, or was scratch
-  work.
+  in-progress build; see the Autonomous build doctrine and "Resuming an
+  interrupted build" above. `run.json` (the resumability ledger: scope,
+  driving problems, planned subareas, per-phase status -- advisory, always
+  reconciled against disk by `status`), `candidates/<subarea>.json` (Phase 2
+  discovery output, one file per subarea), `corrections.json` (bibliographic
+  fixes flagged mid-build), `notes/<key>.json` (Phase 3 structured notes, one
+  file per corpus paper, keyed to `corpus.json`'s `key`),
+  `claims/<key>.claim` (in-flight markers so a second dispatch round doesn't
+  reassign a paper a live worker still has), `figures-attempted/<key>`
+  (Phase 4 markers for a paper that was checked for a figure and had none
+  embeddable), `sections/<NN>-<slug>.md` (Phases 6-7 document fragments, one
+  per structural part plus one per taxonomy node -- `assemble-sections`
+  concatenates them into `survey.md`). Safe to delete entirely once the
+  survey reaches `done` -- everything in it is either already folded into
+  `corpus.json`/`figures.json`/`survey.md`, or was scratch work.
 - `content/critiques/<field>__<topic>.md` -- append-only critic verdict file.
   Line 1 is the machine-read verdict (`approve` | `revise` | `resolved`).
 - `prompts/queue.md` -- the ordered build queue (`field | topic | title | status`).
 - `prompts/critique-rubric.md` -- the survey-specific critic bar (REQUIRED vs
   ADVISORY) and the model guidance above.
 - `prompts/workers/` -- reusable worker prompt templates
-  (`discovery-worker.md`, `reader-worker.md`, `critic-worker.md`) filled in
-  per dispatch; see the Autonomous build doctrine above.
+  (`discovery-worker.md`, `reader-worker.md`, `section-worker.md`,
+  `critic-worker.md`) filled in per dispatch; see the Autonomous build
+  doctrine above.
 - `public/fields/<field>.svg` -- original field emblems, generated by
   `scripts/new_topic.py` when a field is created.
 - `src/lib/fields.ts` / `src/lib/surveys.ts` -- typed registry access and the
