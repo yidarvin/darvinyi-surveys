@@ -18,6 +18,22 @@
           "corpusSize": 189
         }
       ]
+    },
+    {
+      "slug": "pathology",
+      "name": "Pathology",
+      "blurb": "Diagnostic pathology: how disease is recognized in cells, tissue, and marrow.",
+      "graphic": "pathology.svg",
+      "topics": [
+        {
+          "slug": "flow-cytometry-immunophenotyping",
+          "title": "Immunophenotyping of Hematopoietic Cells by Flow Cytometry",
+          "blurb": "Expected marker-expression profiles of every normal blood, marrow, and lymphoid population.",
+          "hero": "taxonomy.svg",
+          "status": "draft",
+          "corpusSize": null
+        }
+      ]
     }
   ]
 }

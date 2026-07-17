@@ -1,0 +1,11 @@
+{
+  "figures": [
+    {
+      "id": "fig-taxonomy",
+      "paper_key": "this-survey",
+      "path": "figures/taxonomy.svg",
+      "caption": "Taxonomy of normal hematopoietic populations by lineage (branches) and maturation stage (leaf color/border), spanning 67 surveyed papers plus 12 cross-cutting standardization/technology references.",
+      "attribution": "Original figure, this survey"
+    }
+  ]
+}
