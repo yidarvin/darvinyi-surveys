@@ -100,11 +100,18 @@ export function SurveyPage() {
       {topic.blurb && <p className="mt-2 text-lg text-muted">{topic.blurb}</p>}
 
       <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs text-comment">
-        <span>{stats.paperCount} papers</span>
+        <span>
+          {stats.paperCount} {topic.sourceMode === "broad" ? "sources" : "papers"}
+        </span>
         <span>{stats.subareaCount} subareas</span>
         {stats.yearMin !== null && stats.yearMax !== null && (
           <span>
             {stats.yearMin === stats.yearMax ? stats.yearMin : `${stats.yearMin}–${stats.yearMax}`}
+          </span>
+        )}
+        {topic.sourceMode === "broad" && (
+          <span title="Corpus: primary texts, authoritative books, and reputable long-form -- not scientific papers">
+            broad-mode sources
           </span>
         )}
       </div>

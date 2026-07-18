@@ -45,7 +45,8 @@ ALLOWED_STATUS_PAIRS = {
 
 REGISTRY_TOP_ORDER = ("title", "subtitle", "url", "fields")
 FIELD_KEY_ORDER = ("slug", "name", "blurb", "graphic", "topics")
-TOPIC_KEY_ORDER = ("slug", "title", "blurb", "hero", "status", "corpusSize")
+TOPIC_KEY_ORDER = ("slug", "title", "blurb", "hero", "status", "corpusSize", "sourceMode")
+VALID_SOURCE_MODES = ("scientific", "broad")
 
 TODO_MARKER = "TODO:"
 
@@ -289,6 +290,9 @@ def validate(repo: str) -> tuple[list[str], list[str]]:
             status = t.get("status")
             if status is not None and status not in VALID_REGISTRY_STATUS:
                 errors.append(f"registry topic '{label}' has invalid status '{status}'")
+            source_mode = t.get("sourceMode")
+            if source_mode is not None and source_mode not in VALID_SOURCE_MODES:
+                errors.append(f"registry topic '{label}' has invalid sourceMode '{source_mode}'")
             tslug = t.get("slug")
             if not tslug or not fslug:
                 continue

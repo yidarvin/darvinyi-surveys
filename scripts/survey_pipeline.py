@@ -455,12 +455,22 @@ def cmd_apply_candidates(args):
                     new_key = f"{key}-{suffix}"
                 skipped_key_collision.append((key, new_key))
                 key = new_key
-            corpus["papers"].append({
+            paper = {
                 "key": key, "title": c["title"], "authors": c["authors"],
                 "year": int(c["year"]), "venue": c["venue"], "url": c["url"],
                 "inclusion_reason": c["inclusion_reason"], "subarea": c["subarea"],
                 "taxonomy_node": "",
-            })
+            }
+            # broad-mode candidates (see discovery-worker-broad.md) carry a
+            # credibility tier + optional source_type; carry them through so
+            # corpus_manifest.py coverage --source-mode broad can see them.
+            # Absent for scientific-mode candidates -- left out entirely, matching
+            # corpus_manifest.py add's own optional-field convention.
+            if c.get("tier") not in (None, ""):
+                paper["tier"] = int(c["tier"])
+            if c.get("source_type"):
+                paper["source_type"] = c["source_type"]
+            corpus["papers"].append(paper)
             seen_ids.add(dedup_id)
             seen_keys.add(key)
             added.append(key)
@@ -504,19 +514,37 @@ def cmd_apply_corrections(args):
             continue
 
         paper = by_key.pop(old_key)
-        paper["key"] = new_key
-        for field, value in fields.items():
-            paper[field] = value
-        by_key[new_key] = paper
+        if new_key != old_key and new_key in by_key:
+            # True duplicate merge: new_key is already its own distinct corpus
+            # entry (not just a typo'd old_key), e.g. two discovery workers in
+            # different subareas independently found the same source. Keep the
+            # survivor's own data -- old_key's record is simply dropped, not
+            # used to overwrite it -- then layer any explicit field overrides
+            # (rare for a pure dedup; empty fields is the common case) on top.
+            surviving = by_key[new_key]
+            for field, value in fields.items():
+                surviving[field] = value
+        else:
+            # Simple rename (new_key doesn't already exist as a separate
+            # entry) or a same-key field fix (old_key == new_key).
+            paper["key"] = new_key
+            for field, value in fields.items():
+                paper[field] = value
+            by_key[new_key] = paper
 
-        # keep the note file in sync so Phase 3 output doesn't cite a dead key
+        # keep the note file in sync so Phase 3 output doesn't cite a dead key.
+        # For a true merge, the surviving key's own note (if it has one) is
+        # left alone; old_key's note is retired the same way either way.
         old_note = notes_dir(survey_dir) / f"{old_key}.json"
+        new_note = notes_dir(survey_dir) / f"{new_key}.json"
         if old_note.exists() and new_key != old_key:
-            new_note = notes_dir(survey_dir) / f"{new_key}.json"
-            old_note.rename(new_note)
-            text = new_note.read_text()
-            if old_key in text:
-                new_note.write_text(text.replace(old_key, new_key))
+            if new_note.exists():
+                old_note.unlink()
+            else:
+                old_note.rename(new_note)
+                text = new_note.read_text()
+                if old_key in text:
+                    new_note.write_text(text.replace(old_key, new_key))
 
         corr["applied"] = True
         applied.append(f"{old_key} -> {new_key}")
@@ -762,6 +790,7 @@ def cmd_run_init(args):
         "scope": args.scope,
         "driving_problems": driving_problems,
         "planned_subareas": planned_subareas,
+        "source_mode": args.source_mode,
         "phase": 1,
         "phase_status": {"1": "gate_passed", **{str(n): "not_started" for n in range(2, 9)}},
         "updated_at": _now_iso(),
@@ -770,6 +799,9 @@ def cmd_run_init(args):
     }
     save_run(survey_dir, data)
     print(f"Initialized {p} for {args.field}/{args.topic} -- Phase 1 recorded.")
+    print(f"  source mode: {args.source_mode}"
+          + ("" if args.source_mode == "scientific"
+             else " -- use *-worker-broad.md templates and the non-scientific critique bar"))
     if driving_problems:
         print(f"  driving problems: {'; '.join(driving_problems)}")
     if planned_subareas:
@@ -788,6 +820,8 @@ def cmd_run_set(args):
     data["updated_at"] = _now_iso()
     if args.next_action:
         data["next_action"] = args.next_action
+    if args.source_mode:
+        data["source_mode"] = args.source_mode
     save_run(survey_dir, data)
     print(f"{survey_dir}: Phase {args.phase} ({PHASE_NAMES.get(args.phase, '?')}) = {args.status}")
     return 0
@@ -852,6 +886,11 @@ def _phase3(survey_dir: Path) -> tuple[str, str]:
 
 
 def _phase4(survey_dir: Path) -> tuple[str, str]:
+    # broad-mode surveys skip figure extraction entirely (no paper figures --
+    # see CLAUDE.md's intake workflow and prompts/source-credibility.md); the
+    # per-key figures-attempted check below only applies to scientific mode.
+    if (load_run(survey_dir) or {}).get("source_mode") == "broad":
+        return "gate_passed", "Phase 4 skipped -- broad mode extracts no source figures"
     keys = _load_corpus_keys_safe(survey_dir)
     if keys is None:
         return "not_started", "corpus.json not initialized or empty"
@@ -1025,6 +1064,7 @@ def _write_run_from_status(survey_dir: Path, field: str, topic: str, st: dict) -
         "scope": existing.get("scope", ""),
         "driving_problems": existing.get("driving_problems", []),
         "planned_subareas": existing.get("planned_subareas", []),
+        "source_mode": existing.get("source_mode", "scientific"),
         "phase": st["current_phase"] if st["current_phase"] is not None else 8,
         "phase_status": {str(n): st["phase_status"][n] for n in PHASES},
         "updated_at": _now_iso(),
@@ -1039,9 +1079,15 @@ def cmd_status(args):
     reg_status = _registry_status(field, topic)
     st = _compute_status(survey_dir, verify_refs=args.verify_refs, reg_status=reg_status)
 
+    existing_run = load_run(survey_dir) or {}
+    source_mode = existing_run.get("source_mode", "scientific")
+
     print(f"Build status for {field}/{topic}")
     if reg_status is not None:
         print(f"  registry status: {reg_status}")
+    print(f"  source mode: {source_mode}"
+          + ("" if source_mode == "scientific"
+             else " -- use *-worker-broad.md templates and the non-scientific critique bar"))
     print()
     for n in PHASES:
         status, detail = st["phase_status"][n], st["phase_detail"][n]
@@ -1081,7 +1127,9 @@ def cmd_scan(args):
             st = _compute_status(tdir, reg_status=reg_status)
             phase = st["current_phase"] if st["current_phase"] is not None else 8
             key = f"{fdir.name}/{tdir.name}"
-            print(f"{key} -- Phase {phase} ({PHASE_NAMES[phase]}), registry: {reg_status or 'unknown'}")
+            source_mode = (load_run(tdir) or {}).get("source_mode", "scientific")
+            print(f"{key} -- Phase {phase} ({PHASE_NAMES[phase]}), registry: {reg_status or 'unknown'}, "
+                  f"source mode: {source_mode}")
             found.append(key)
 
     if not found:
@@ -1177,6 +1225,12 @@ def main():
                     help="'|'-separated list, e.g. 'image quality|sample diversity|training stability'")
     p.add_argument("--planned-subareas", default="",
                     help="'|'-separated list of subareas dispatched to Phase 2 discovery workers")
+    p.add_argument("--source-mode", default="scientific", choices=("scientific", "broad"),
+                    help="'scientific' (default): corpus is scientific papers, read as PDFs, "
+                         "per the survey-and-taxonomy-research skill unchanged. 'broad': corpus "
+                         "is trustable non-paper sources (books, primary texts, authoritative "
+                         "writing) per prompts/source-credibility.md -- selects the "
+                         "*-worker-broad.md templates and the non-scientific critique bar.")
     p.add_argument("--force", action="store_true")
     p.set_defaults(func=cmd_run_init)
 
@@ -1185,6 +1239,9 @@ def main():
     p.add_argument("--phase", type=int, required=True, choices=PHASES)
     p.add_argument("--status", required=True, choices=PHASE_STATUSES)
     p.add_argument("--next-action", default="")
+    p.add_argument("--source-mode", default=None, choices=("scientific", "broad"),
+                    help="correct a previously-recorded source_mode (rare -- normally set once "
+                         "at run-init)")
     p.set_defaults(func=cmd_run_set)
 
     p = sub.add_parser("status",

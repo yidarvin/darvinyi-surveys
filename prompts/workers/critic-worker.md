@@ -23,24 +23,37 @@ rubric (REQUIRED findings block approval, ADVISORY do not). This template
 only adds the mechanical/tooling contract on top of that rubric; it does
 not restate it.
 
+**Check the source mode before you judge anything.** Run `python3
+scripts/survey_pipeline.py status {{SURVEY_DIR}}` (below) and read the
+`source mode` line it prints -- `scientific` or `broad`. Apply the matching
+REQUIRED list from the rubric (they differ; do not judge a `broad` survey
+against the paper-figure-licensing bar, or a `scientific` survey against the
+source-tier bar). For `broad`, also read `prompts/source-credibility.md`
+before evaluating source credibility.
+
 ## Tooling available for objective checks
 
 Before making a judgment call, use these to establish ground truth rather
 than eyeballing file listings:
 
 ```
-python3 scripts/corpus_manifest.py coverage {{SURVEY_DIR}}/corpus.json --strict
+python3 scripts/survey_pipeline.py status {{SURVEY_DIR}}         # full 8-phase gate recheck from disk, prints source mode
+python3 scripts/corpus_manifest.py coverage {{SURVEY_DIR}}/corpus.json --strict [--source-mode broad]
 python3 scripts/figure_manifest.py check {{SURVEY_DIR}}/figures.json --document {{SURVEY_DIR}}/survey.md
-python3 scripts/survey_pipeline.py status {{SURVEY_DIR}}         # full 8-phase gate recheck from disk
 python3 scripts/survey_pipeline.py notes-status {{SURVEY_DIR}}   # Phase 3 completeness, if .pipeline/ still exists
 npm run check
 ```
 
+(Add `--source-mode broad` to the `coverage` call only when `status` reported
+`broad` -- it adds the tier-balance check on top of the size/subarea checks
+that apply either way.)
+
 ## Hard rules
 
 - **Do not spawn sub-agents.** If you want a second opinion on a specific
-  numeric claim, verify it yourself (WebFetch the paper, check Semantic
-  Scholar) rather than delegating the check.
+  claim, verify it yourself (WebFetch the source; check Semantic Scholar for
+  a paper, or the source's own outlet/publisher page for a book, primary
+  text, or article) rather than delegating the check.
 - **Write your verdict directly to disk**, not as your final message:
   `{{REPO_ROOT}}/content/critiques/{{FIELD}}__{{TOPIC}}.md`, append-only,
   line 1 exactly `verdict: approve` or `verdict: revise` (machine-parsed --
@@ -52,7 +65,7 @@ npm run check
   token-limit death) mechanically see which findings are still open via
   `survey_pipeline.py critique-status`, instead of re-deriving it from prose.
 - **On approve**, run `python3 scripts/mark.py {{FIELD}}/{{TOPIC}} done` and
-  set `corpusSize` in `content/registry.json` from `corpus.json`'s paper
+  set `corpusSize` in `content/registry.json` from `corpus.json`'s entry
   count yourself -- don't leave the mechanical follow-through to whoever
   reads your report; you're the one who just established the ground truth
   for it.

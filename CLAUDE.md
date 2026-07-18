@@ -3,19 +3,28 @@
 **darvinyi surveys** (deployed at surveys.darvinyi.com) is a hub of living survey-
 and-taxonomy documents, organized two levels deep: **fields** (e.g. AI, Statistics,
 Pathology) each hold **topics** (e.g. "LLM & Agent Benchmarks and Evaluations"),
-and each topic page is a full survey built from 100+ papers with a derived
-taxonomy, an evolution narrative, and a sortable paper index. It is a Vite +
-React + TypeScript site on Vercel. The scaffold ships with **zero fields and zero
-topics** -- `content/registry.json` starts as `{ ..., "fields": [] }` -- and every
-field/topic is created by the workflow below, on demand.
+and each topic page is a full survey built from 100+ sources with a derived
+taxonomy, an evolution narrative, and a sortable index. For **scientific** topics
+those 100+ sources are scientific papers, read in full, exactly as always. For
+**non-scientific** topics (e.g. Stoicism, work-life balance) the corpus instead
+draws on trustable, high-quality sources of any kind -- primary texts, authoritative
+books, reputable long-form -- tiered by credibility; see "Classify the survey's
+source mode" below. It is a Vite + React + TypeScript site on Vercel. The scaffold
+ships with **zero fields and zero topics** -- `content/registry.json` starts as
+`{ ..., "fields": [] }` -- and every field/topic is created by the workflow below,
+on demand.
 
 This repo intentionally does **not** use the `refsite-runner` skill's chapter/MDX
 content model (a survey is a different shape than a book chapter). It reuses that
 skill's design system and build-critique *doctrine* (separated builder/critic
 roles, an append-only verdict file, a queue) but implements its own two-level
-tooling in `scripts/`. Content itself comes from the **`survey-and-taxonomy-
-research`** skill, whose native output (`survey.md` + `figures/` + `corpus.json`)
-drops straight into `content/surveys/<field>/<topic>/`.
+tooling in `scripts/`. For **scientific** topics, content comes straight from the
+**`survey-and-taxonomy-research`** skill, whose native output (`survey.md` +
+`figures/` + `corpus.json`) drops straight into `content/surveys/<field>/<topic>/`.
+For **non-scientific** topics, this repo drives the same skill's Phases 1 and
+5-8 (scope, taxonomy, evolution, assembly, verification) but substitutes its own
+`*-worker-broad.md` templates for Phases 2-3 and skips Phase 4 entirely -- see
+"Classify the survey's source mode" and `prompts/source-credibility.md`.
 
 ## The intake workflow -- how to ask for a new survey
 
@@ -36,52 +45,89 @@ do this, without further prompting:
    this under a new field *Artificial Intelligence*" / "under existing field
    *AI*"). Only pause to ask if genuinely ambiguous; otherwise proceed. I can
    always override afterward ("put it under Pathology instead").
-3. **Deduce the topic.** Derive a slug, title, and blurb from the request. Stamp
-   both files:
+3. **Classify the survey's source mode.** The test: *does answering this topic
+   well mean reading the scientific literature, or the field's best books /
+   primary texts / authoritative writing?* LLM benchmarks, protein folding, flow
+   cytometry -> `scientific` (the default -- unchanged behavior, scientific papers
+   read as PDFs via arXiv/Semantic Scholar). Stoicism, work-life balance, the
+   history of jazz, negotiation tactics -> `broad` (trustable non-paper sources,
+   tiered by credibility per `prompts/source-credibility.md`). **State the
+   decision in one line** ("Building this in **broad** source mode -- corpus will
+   be primary texts + authoritative secondary sources, not papers"). Only pause
+   to ask if genuinely ambiguous (a topic that plausibly wants both, e.g. "the
+   psychology of habit formation"); otherwise proceed. I can always override
+   afterward.
+4. **Deduce the topic.** Derive a slug, title, and blurb from the request. Stamp
+   both files, passing the source mode from step 3 (`--source-mode broad` stamps
+   `sourceMode: "broad"` into the registry entry so the site can label it; omit
+   for `scientific`, the default, which stamps nothing -- identical to every
+   pre-existing topic):
    ```
    python3 scripts/new_topic.py --field <f> --topic <t> --title "<T>" \
-     [--blurb "..."] [--field-name "<N>" --field-blurb "..." if the field is new]
+     [--blurb "..."] [--field-name "<N>" --field-blurb "..." if the field is new] \
+     [--source-mode broad]
    ```
-4. **Build** (Sonnet, effort high -- see Models below). Before any fan-out,
+5. **Build** (Sonnet, effort high -- see Models below). Before any fan-out,
    record the skill's own Phase 1 (scope statement, 2-4 driving problems, and
    the subareas you plan to dispatch Phase 2 discovery workers across) to
-   `.pipeline/run.json`:
+   `.pipeline/run.json`, including the source mode from step 3:
    ```
    python3 scripts/survey_pipeline.py run-init content/surveys/<f>/<t> \
      --field <f> --topic <t> --title "<T>" --scope "<one-line scope>" \
      --driving-problems "<problem1>|<problem2>|<problem3>" \
-     --planned-subareas "<subarea1>|<subarea2>|..."
+     --planned-subareas "<subarea1>|<subarea2>|..." \
+     --source-mode <scientific|broad>
    ```
    This is what makes the plan itself durable: if a token-limit death hits
    later in the build, a fresh session resumes from what's recorded here
    instead of re-deriving scope and possibly building a *different* survey
    than the half-finished one on disk (see "Resuming an interrupted build"
-   below). Then run the `survey-and-taxonomy-research` skill with output dir
-   `content/surveys/<f>/<t>/`, targeting **100+ papers** (fewer only with an
-   explicit, convincing justification that the subfield is genuinely small --
-   the critic checks this). Drive the skill's Phase 2 (discovery) and Phase 3
-   (reading) -- the two phases that fan out across many parallel workers --
-   via the **Autonomous build doctrine** below rather than ad hoc message
-   passing; it's what lets the pipeline run to completion unattended instead
-   of stalling or silently losing a worker's output. Its own Phase 8 gates
-   must pass. Then:
+   below) -- and `source_mode` specifically is what lets a resuming session
+   pick the right worker templates without re-classifying the topic. Then run
+   the `survey-and-taxonomy-research` skill with output dir
+   `content/surveys/<f>/<t>/`, targeting **100+ sources** (fewer only with an
+   explicit, convincing justification that the subfield/topic is genuinely
+   small -- the critic checks this). Drive the skill's Phase 2 (discovery) and
+   Phase 3 (reading) -- the two phases that fan out across many parallel
+   workers -- via the **Autonomous build doctrine** below rather than ad hoc
+   message passing; it's what lets the pipeline run to completion unattended
+   instead of stalling or silently losing a worker's output.
+
+   **In `scientific` mode**, Phases 2-4 run exactly as the skill describes:
+   `prompts/workers/discovery-worker.md` and `prompts/workers/reader-worker.md`,
+   papers verified via Semantic Scholar/arXiv, PDF figure extraction in Phase 4.
+
+   **In `broad` mode**: Phase 2 dispatches
+   `prompts/workers/discovery-worker-broad.md` instead (sources tiered and
+   provenance-checked per `prompts/source-credibility.md`, not verified via
+   Semantic Scholar); Phase 3 dispatches
+   `prompts/workers/reader-worker-broad.md` instead (fetches each source's
+   actual text -- web page, canonical online edition of a book/primary text --
+   rather than downloading a PDF); **Phase 4 is skipped entirely** -- no paper
+   figures are extracted, so the only figures in the document are the authored
+   taxonomy/timeline SVGs Phases 5-6 already produce. Phases 1 and 5-8 are
+   identical in both modes.
+
+   Its own Phase 8 gates must pass. Then:
    ```
    python3 scripts/mark.py <f>/<t> draft
    ```
    Commit `build: <f>/<t>`.
-5. **Critique -> resolve -> approve** (Opus, effort high -- see Models below and
+6. **Critique -> resolve -> approve** (Opus, effort high -- see Models below and
    `prompts/critique-rubric.md`). Loop build-critique automatically: spawn the
    critic as an independent subagent with no memory of the build (the
    `prompts/workers/critic-worker.md` template has the exact invocation
-   contract), judge against the rubric, write `content/critiques/<f>__<t>.md`.
-   On `revise`, the builder (Sonnet) fixes REQUIRED findings and the critic
-   re-reviews. On `approve`, the critic runs `python3 scripts/mark.py <f>/<t>
-   done` and sets `corpusSize` in the registry from `corpus.json`. This loop is
-   what "done" means here -- do not skip straight to `mark.py ... done`
-   yourself.
-6. **Report** what was built: the field decision, corpus size, critique rounds,
-   any open advisories. Do not push or deploy unless I ask (see House rules).
-   Leave me to review with `npm run dev`.
+   contract). The critic reads `source_mode` from `run.json` (via
+   `survey_pipeline.py status`) and judges against the matching REQUIRED list in
+   the rubric -- `scientific` or `broad`, they differ -- then writes
+   `content/critiques/<f>__<t>.md`. On `revise`, the builder (Sonnet) fixes
+   REQUIRED findings and the critic re-reviews. On `approve`, the critic runs
+   `python3 scripts/mark.py <f>/<t> done` and sets `corpusSize` in the registry
+   from `corpus.json`. This loop is what "done" means here -- do not skip
+   straight to `mark.py ... done` yourself.
+7. **Report** what was built: the field decision, source mode, corpus size,
+   critique rounds, any open advisories. Do not push or deploy unless I ask (see
+   House rules). Leave me to review with `npm run dev`.
 
 ### By-hand verbs (for power use, once fields/topics exist)
 
@@ -124,9 +170,10 @@ to re-run -- each one only ever acts on what's actually missing or invalid
 on disk, never on what a message claimed happened.
 
 Worker prompt templates live in `prompts/workers/` (`discovery-worker.md`,
-`reader-worker.md`, `section-worker.md`, `critic-worker.md`, filled in with
-`{{...}}` placeholders per dispatch) and encode the two rules that matter
-most:
+`reader-worker.md`, `section-worker.md`, `critic-worker.md`, and their `broad`-mode
+counterparts `discovery-worker-broad.md` / `reader-worker-broad.md` -- see "Classify
+the survey's source mode" above for which pair a given build uses -- filled in with `{{...}}`
+placeholders per dispatch) and encode the two rules that matter most:
 
 - **One level of fan-out, ever.** A discovery or reader worker must not
   spawn its own sub-agents to "parallelize" a big batch -- it reads
@@ -212,17 +259,23 @@ and silently building a different survey than the half-finished one on disk.
    disk (never trusting `.pipeline/run.json`'s own claims over what the
    actual gate checks say), prints the current phase and the exact next
    command, and self-heals `run.json` to match what it just measured.
-3. **Do not re-derive scope, driving problems, or planned subareas.** Read
-   them from `run.json` (`status` prints a loud warning if they were never
-   recorded -- e.g. a build that predates this convention -- in which case
-   re-derive them carefully from `corpus.json`'s scope and the subareas
-   already represented among existing papers, not from the original request
-   in isolation).
+3. **Do not re-derive scope, driving problems, planned subareas, or source
+   mode.** Read them from `run.json` (`status` prints them, including a
+   `source mode` line, and prints a loud warning if scope/problems/subareas
+   were never recorded -- e.g. a build that predates this convention -- in
+   which case re-derive them carefully from `corpus.json`'s scope and the
+   subareas already represented among existing papers, not from the original
+   request in isolation; a missing `source_mode` self-heals to `scientific`,
+   the pre-`broad`-mode default, which is correct for every build that
+   predates this convention). **Never re-classify the source mode from
+   scratch** -- resuming with the wrong mode's worker templates mid-build
+   would mix scientific-paper and broad-source conventions in one corpus.
 4. Resume the phase `status` printed, using its normal converge loop or next
-   command. For Phase 2, 3, and Phase 7's per-node fan-out, that means
-   dispatching workers only over the `missing`/`invalid`/`stub` set the
-   relevant `*-status` command reports -- completed per-item work is never
-   redone.
+   command -- dispatching the `-broad.md` worker templates instead of the
+   default pair if `source_mode` is `broad`. For Phase 2, 3, and Phase 7's
+   per-node fan-out, that means dispatching workers only over the
+   `missing`/`invalid`/`stub` set the relevant `*-status` command reports --
+   completed per-item work is never redone.
 5. Keep checkpointing per the Autonomous build doctrine above as you go, so
    the *next* interruption, if any, is just as cheap to resume from.
 
@@ -259,8 +312,8 @@ Full detail: `prompts/critique-rubric.md`.
   `.gitignore`). Written and read by `scripts/survey_pipeline.py` during an
   in-progress build; see the Autonomous build doctrine and "Resuming an
   interrupted build" above. `run.json` (the resumability ledger: scope,
-  driving problems, planned subareas, per-phase status -- advisory, always
-  reconciled against disk by `status`), `candidates/<subarea>.json` (Phase 2
+  driving problems, planned subareas, source mode, per-phase status --
+  advisory, always reconciled against disk by `status`), `candidates/<subarea>.json` (Phase 2
   discovery output, one file per subarea), `corrections.json` (bibliographic
   fixes flagged mid-build), `notes/<key>.json` (Phase 3 structured notes, one
   file per corpus paper, keyed to `corpus.json`'s `key`),
@@ -276,11 +329,15 @@ Full detail: `prompts/critique-rubric.md`.
   Line 1 is the machine-read verdict (`approve` | `revise` | `resolved`).
 - `prompts/queue.md` -- the ordered build queue (`field | topic | title | status`).
 - `prompts/critique-rubric.md` -- the survey-specific critic bar (REQUIRED vs
-  ADVISORY) and the model guidance above.
+  ADVISORY, one list per source mode) and the model guidance above.
+- `prompts/source-credibility.md` -- the `broad`-mode source-tier model (Tier
+  1-3, the balance rule, provenance verification) referenced by the `-broad.md`
+  worker templates and the critique rubric's broad-mode REQUIRED list.
 - `prompts/workers/` -- reusable worker prompt templates
   (`discovery-worker.md`, `reader-worker.md`, `section-worker.md`,
-  `critic-worker.md`) filled in per dispatch; see the Autonomous build
-  doctrine above.
+  `critic-worker.md`, plus `discovery-worker-broad.md` /
+  `reader-worker-broad.md` for `broad`-mode builds) filled in per dispatch;
+  see the Autonomous build doctrine above.
 - `public/fields/<field>.svg` -- original field emblems, generated by
   `scripts/new_topic.py` when a field is created.
 - `src/lib/fields.ts` / `src/lib/surveys.ts` -- typed registry access and the
@@ -304,7 +361,10 @@ paper figure. A topic's card uses its own `figures/taxonomy.svg` (the survey
 skill labels this "Original figure, this survey" -- zero licensing question). A
 field's card uses a generated SVG emblem. Extracted *paper* figures only ever
 appear inside a survey's body prose, under the skill's own scholarly-commentary
-and per-paper license-check rules -- never promoted to a landing card.
+and per-paper license-check rules -- never promoted to a landing card. `broad`-mode
+surveys never extract source figures at all (Phase 4 is skipped -- see the intake
+workflow), so this question doesn't arise there; their only figures are the
+authored taxonomy/timeline SVGs, already licensing-clean by construction.
 
 ## House rules
 

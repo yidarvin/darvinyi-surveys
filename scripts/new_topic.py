@@ -131,7 +131,9 @@ def ensure_field(repo: str, data: dict, slug: str, name: str, blurb: str) -> dic
     return field
 
 
-def ensure_topic(field: dict, slug: str, title: str, blurb: str) -> tuple[dict, bool]:
+def ensure_topic(
+    field: dict, slug: str, title: str, blurb: str, source_mode: str = "scientific"
+) -> tuple[dict, bool]:
     for t in field.get("topics", []):
         if t.get("slug") == slug:
             return t, False
@@ -141,6 +143,11 @@ def ensure_topic(field: dict, slug: str, title: str, blurb: str) -> tuple[dict, 
     topic["hero"] = "taxonomy.svg"
     topic["status"] = "pending"
     topic["corpusSize"] = None
+    # "scientific" is the default and left unstamped, matching run.json's own
+    # convention (see survey_pipeline.py) -- only a non-default mode is recorded,
+    # so every pre-existing (all-scientific) registry entry is untouched.
+    if source_mode == "broad":
+        topic["sourceMode"] = source_mode
     field["topics"].append(topic)
     return topic, True
 
@@ -178,6 +185,12 @@ def main(argv: list[str]) -> int:
     ap.add_argument("--blurb", default="")
     ap.add_argument("--field-name", default="", help="required if --field does not exist yet")
     ap.add_argument("--field-blurb", default="")
+    ap.add_argument("--source-mode", default="scientific", choices=("scientific", "broad"),
+                     help="'scientific' (default): omitted from the registry entry, "
+                          "matching every existing topic. 'broad': stamps "
+                          "sourceMode='broad' so the site can label it -- pair with "
+                          "'survey_pipeline.py run-init --source-mode broad' in Step 5 "
+                          "of the intake workflow.")
     ap.add_argument("--repo", default=os.getcwd(), help="repo root (default: cwd)")
     args = ap.parse_args(argv[1:])
 
@@ -198,7 +211,7 @@ def main(argv: list[str]) -> int:
     print(f"stamping topic '{field_slug}/{topic_slug}':")
     data = V.load_registry(repo)
     field = ensure_field(repo, data, field_slug, args.field_name, args.field_blurb)
-    topic, created = ensure_topic(field, topic_slug, args.title, args.blurb)
+    topic, created = ensure_topic(field, topic_slug, args.title, args.blurb, args.source_mode)
     V.write_registry(repo, data)
     if created:
         print(f"  registry: inserted pending topic '{topic_slug}' under '{field_slug}'")

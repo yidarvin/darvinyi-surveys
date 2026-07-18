@@ -19,6 +19,11 @@ from pathlib import Path
 MIN_TOTAL = 25
 PAPER_FIELDS = ("key", "title", "authors", "year", "venue", "url",
                 "inclusion_reason", "subarea", "taxonomy_node")
+# tier/source_type are optional -- null for 'scientific' mode, set for 'broad' mode
+# per prompts/source-credibility.md. Tier 1 = primary/canonical, 2 = authoritative
+# secondary, 3 = reputable general-interest. See that file for the definitions and
+# the balance rule 'coverage --source-mode broad' checks below.
+TIER_CHOICES = ("1", "2", "3")
 
 
 def load(manifest_path):
@@ -60,9 +65,12 @@ def cmd_add(args):
         "year": args.year, "venue": args.venue, "url": args.url,
         "inclusion_reason": args.inclusion_reason, "subarea": args.subarea,
         "taxonomy_node": args.taxonomy_node,
+        "tier": int(args.tier) if args.tier else None,
+        "source_type": args.source_type or None,
     })
     save(p, data)
-    print(f"Added [{args.key}] {args.title} ({args.year}) — "
+    tier_note = f", tier {args.tier}" if args.tier else ""
+    print(f"Added [{args.key}] {args.title} ({args.year}){tier_note} — "
           f"{len(data['papers'])} papers in corpus")
 
 
@@ -127,6 +135,32 @@ def cmd_coverage(args):
             warnings.append(
                 f"LOPSIDED CORPUS: '{sub}' holds {n}/{total} papers (more "
                 f"than half). Broaden the other subareas.")
+
+    if args.source_mode == "broad" and total:
+        tiers = [paper.get("tier") for paper in papers]
+        untiered = sum(1 for t in tiers if t not in (1, 2, 3))
+        tier1_2 = sum(1 for t in tiers if t in (1, 2))
+        tier3 = sum(1 for t in tiers if t == 3)
+        print("\nSource credibility tiers (broad mode, see prompts/source-credibility.md):")
+        print(f"  Tier 1 (primary/canonical):     {sum(1 for t in tiers if t == 1)}")
+        print(f"  Tier 2 (authoritative secondary): {sum(1 for t in tiers if t == 2)}")
+        print(f"  Tier 3 (reputable general-interest): {tier3}")
+        if untiered:
+            print(f"  Untiered (no --tier set):       {untiered}")
+        if untiered:
+            warnings.append(
+                f"UNTIERED SOURCES: {untiered} paper(s) have no --tier set. "
+                f"broad-mode sources must be tiered per prompts/source-credibility.md.")
+        if tier1_2 < total / 2:
+            warnings.append(
+                f"CREDIBILITY IMBALANCE: only {tier1_2}/{total} sources are Tier 1-2 "
+                f"(need a majority). The corpus is leaning on general-interest sources "
+                f"rather than primary texts and authoritative secondary sources.")
+        if tier3 > total * 0.30:
+            warnings.append(
+                f"CREDIBILITY IMBALANCE: {tier3}/{total} sources are Tier 3 "
+                f"(reputable general-interest), above the ~30% cap.")
+
     if warnings:
         print("\n" + "\n".join("!! WARNING: " + w for w in warnings))
         if args.strict:
@@ -170,6 +204,14 @@ def main():
     p_add.add_argument("--subarea", required=True)
     p_add.add_argument("--taxonomy-node", default="",
                        help="leave empty until Phase 5; set via set-node")
+    p_add.add_argument("--tier", choices=TIER_CHOICES, default=None,
+                       help="broad-mode only: credibility tier per "
+                            "prompts/source-credibility.md (1=primary/canonical, "
+                            "2=authoritative secondary, 3=reputable general-interest). "
+                            "Omit for scientific-mode papers.")
+    p_add.add_argument("--source-type", default=None,
+                       help="broad-mode only: free-text label, e.g. 'book', "
+                            "'primary-text', 'essay', 'report', 'paper', 'lecture'")
     p_add.set_defaults(func=cmd_add)
 
     p_node = sub.add_parser("set-node", help="assign a paper to a taxonomy node")
@@ -188,6 +230,10 @@ def main():
     p_cov.add_argument("--min-total", type=int, default=MIN_TOTAL)
     p_cov.add_argument("--strict", action="store_true",
                        help="exit 2 if any warning fires (use as the Phase 2 gate)")
+    p_cov.add_argument("--source-mode", choices=("scientific", "broad"), default="scientific",
+                       help="'broad': also check the tier-balance rule from "
+                            "prompts/source-credibility.md (majority Tier 1-2, "
+                            "Tier 3 capped at ~30%%)")
     p_cov.set_defaults(func=cmd_coverage)
 
     args = ap.parse_args()

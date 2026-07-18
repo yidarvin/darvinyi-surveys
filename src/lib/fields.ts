@@ -18,6 +18,12 @@ export interface Topic {
   status: TopicStatus;
   /** Paper count from corpus.json, filled in once the topic is built. */
   corpusSize?: number | null;
+  /** Absent (or "scientific") for a paper-sourced survey -- the default, and the
+   *  only mode every topic used before this field existed. "broad": the corpus is
+   *  trustable non-paper sources (books, primary texts, authoritative writing),
+   *  tiered per prompts/source-credibility.md. Stamped by new_topic.py's
+   *  --source-mode flag; see CLAUDE.md's intake workflow. */
+  sourceMode?: "scientific" | "broad";
 }
 
 export interface Field {

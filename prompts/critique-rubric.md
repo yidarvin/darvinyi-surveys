@@ -27,6 +27,16 @@ Any other agentic step in the intake workflow (deducing field placement, corpus
 discovery fan-out, resolve-round fixes) defaults to Sonnet at effort high
 unless it is specifically a judgment/critique step, in which case it is Opus.
 
+## Source mode
+
+Every survey has a `source_mode` recorded in `.pipeline/run.json` (self-healed by
+`python3 scripts/survey_pipeline.py status <survey_dir>` if missing, which defaults
+it to `scientific`). **The critic reads this before reviewing** and applies the
+matching REQUIRED list below: `scientific` surveys are judged against "REQUIRED
+(scientific mode)", `broad` surveys against "REQUIRED (broad / non-scientific
+mode)". Everything outside those two lists — the roles above, the verdict-file
+mechanics, ADVISORY, and Anti-oscillation — applies identically to both.
+
 ## Verdict file
 
 `content/critiques/<field>__<topic>.md`, append-only. Line 1 is the only
@@ -56,7 +66,7 @@ recall which fixes it already made. A critique predating this convention (no
 checkboxes) is not retroactively broken -- `critique-status` reports it
 can't verify resolution mechanically and defers to the text.
 
-## REQUIRED (blocks approval)
+## REQUIRED (scientific mode)
 
 - **Corpus adequacy.** 100+ papers, or a smaller N with an explicit, convincing
   written justification (in the survey's scope section or the corpus notes)
@@ -87,13 +97,54 @@ can't verify resolution mechanically and defers to the text.
   failing gate on a draft is itself a REQUIRED finding, not something to work
   around.
 
-## ADVISORY (does not block approval)
+## REQUIRED (broad / non-scientific mode)
+
+Applies when `run.json` records `"source_mode": "broad"` — see
+`prompts/source-credibility.md` for the tier model this section enforces.
+
+- **Corpus adequacy.** 100+ sources, or a smaller N with an explicit, convincing
+  written justification that the topic is genuinely narrow. `python3
+  scripts/corpus_manifest.py coverage corpus.json --strict --source-mode broad`
+  passes: no subarea over half the corpus, none under 2 sources.
+- **Source credibility (replaces scientific mode's per-figure licensing check).**
+  The corpus is **majority Tier 1-2** (primary/canonical + authoritative
+  secondary) with **Tier 3 capped at ~30%**, per the coverage report's tier
+  breakdown. Every source is tiered — none left blank. Spot-check a sample of
+  entries directly (not just trust the discovery worker's self-report): real
+  authorship/attribution, a credible outlet or publisher, and a resolving
+  canonical URL. A corpus that leans on blog thinkpieces rather than primary
+  texts and authoritative scholarship fails here regardless of count — this is
+  the broad-mode equivalent of the scientific bar's grounding requirement.
+- **Grounding.** Every claim in `survey.md` traces to a corpus source (by key or
+  reference number). Nothing ungroundable is left unlabeled.
+- **Taxonomy quality.** The axes are derived from the corpus, not a template,
+  each justified in one sentence. Every corpus source is placed on the taxonomy
+  (or explicitly at `root` for cross-cutting sources).
+- **Higher-level insight.** Identical bar to scientific mode, word for word: a
+  survey of per-source summaries strung together with no field-level synthesis
+  fails here regardless of how many sources it read. The document must deliver
+  a taxonomy that actually clarifies the field's shape, an evolution narrative
+  with causes, and at least one cross-cutting comparison.
+- **Consistent depth.** No taxonomy node gets three paragraphs while its sibling
+  gets one line.
+- **Figures.** Non-scientific surveys carry only original figures (the taxonomy
+  SVG, optionally a timeline SVG) — there is no paper-figure extraction or
+  per-figure licensing question. `python3 scripts/figure_manifest.py check
+  figures.json --document survey.md` passes; every figure's attribution reads
+  "Original figure, this survey".
+- **References resolve.** Every reference URL returns HTTP 200 (curl-checked) —
+  same gate as scientific mode, no leniency for non-paper sources.
+- **Gate passes.** `npm run check` is green on the current artifacts.
+
+## ADVISORY (does not block approval, either mode)
 
 - Prose polish, minor rephrasing, additional cross-links between related
   topics once more than one exists in the same field.
 - A thin subarea that technically clears the coverage gate but could use one
-  or two more papers.
+  or two more papers/sources.
 - Additional comparison tables beyond the required one.
+- (Broad mode) A corpus that clears the Tier 1-2 majority by a comfortable
+  margin but could still use one or two more Tier 1 primary sources.
 
 Only fix an advisory item during resolve if it is cheap and clearly correct,
 and never at the cost of regressing a required fix.
