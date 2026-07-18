@@ -1,0 +1,144 @@
+{
+  "figures": [
+    {
+      "id": "fig-guo2025deepseekr1",
+      "paper_key": "guo2025deepseekr1",
+      "path": "figures/deepseek-r1-fig1.png",
+      "caption": "DeepSeek-R1-Zero's AIME 2024 accuracy (pass@1 and cons@16) and average response length steadily rising over the course of pure RL training, with accuracy surpassing the human-participant baseline.",
+      "attribution": "Figure from Guo et al. (2025), DeepSeek-R1, arXiv:2501.12948"
+    },
+    {
+      "id": "fig-shao2024deepseekmath",
+      "paper_key": "shao2024deepseekmath",
+      "path": "figures/deepseekmath-fig4.png",
+      "caption": "Side-by-side schematic of PPO and GRPO: GRPO drops PPO's separately-trained value model, instead sampling a group of outputs per prompt and computing advantages from their normalized group-relative rewards.",
+      "attribution": "Figure from Shao et al. (2024), DeepSeekMath, arXiv:2402.03300"
+    },
+    {
+      "id": "fig-yu2025dapo",
+      "paper_key": "yu2025dapo",
+      "path": "figures/dapo-fig1.png",
+      "caption": "AIME 2024 accuracy of DAPO on Qwen2.5-32B rising with training steps (avg@32, pass@32, cons@32), surpassing the DeepSeek-R1-Zero-Qwen-32B baseline using about half the training steps.",
+      "attribution": "Figure from Yu et al. (2025), DAPO, arXiv:2503.14476"
+    },
+    {
+      "id": "fig-lambert2025tulu3",
+      "paper_key": "lambert2025tulu3",
+      "path": "figures/tulu3-fig1.png",
+      "caption": "Overview of the Tulu 3 post-training recipe: core skill identification and data curation feed a multi-stage pipeline of SFT, DPO, and final RL with verifiable rewards, each stage paired with development and unseen evaluations.",
+      "attribution": "Figure from Lambert et al. (2024), Tulu 3, arXiv:2411.15124"
+    },
+    {
+      "id": "fig-jin2025searchr1",
+      "paper_key": "jin2025searchr1",
+      "path": "figures/search-r1-fig1.png",
+      "caption": "Search-R1's PPO and GRPO training pipelines augmented with a search engine: a rollout module interleaves policy-LLM generation with search-engine calls, and the retrieved-plus-generated trajectory is optimized against the reward.",
+      "attribution": "Figure from Jin et al. (2025), Search-R1, arXiv:2503.09516"
+    },
+    {
+      "id": "fig-feng2025retool",
+      "paper_key": "feng2025retool",
+      "path": "figures/retool-fig2.png",
+      "caption": "Comparison of text-based RL training against ReTool's RL training with interleaved code execution, where the policy LLM's rollout alternates between generated text/code and interpreter feedback from a code sandbox before reward and advantage computation.",
+      "attribution": "Figure from Feng et al. (2025), ReTool, arXiv:2504.11536"
+    },
+    {
+      "id": "fig-wei2025swerl",
+      "paper_key": "wei2025swerl",
+      "path": "figures/swe-rl-fig1.png",
+      "caption": "Overview of SWE-RL: a seed RL dataset is curated and selected from GitHub pull requests, then an LM is trained with GRPO using a reward that compares the model's predicted patch against the oracle patch (with a negative reward for malformed outputs).",
+      "attribution": "Figure from Wei et al. (2025), SWE-RL, arXiv:2502.18449"
+    },
+    {
+      "id": "fig-le2022coderl",
+      "paper_key": "le2022coderl",
+      "path": "figures/coderl-fig2.png",
+      "caption": "Overview of CodeRL's actor-critic framework for program synthesis: a pretrained LM is finetuned on problem-solution pairs, then an actor network is optimized by RL using a critic network trained to predict unit-test outcomes of sampled programs.",
+      "attribution": "Figure from Le et al. (2022), CodeRL, arXiv:2207.01780"
+    },
+    {
+      "id": "fig-lightman2023letsverify",
+      "paper_key": "lightman2023letsverify",
+      "path": "figures/lets-verify-fig1.png",
+      "caption": "Screenshot of the human-feedback interface used to collect process supervision: each step of a model's chain-of-thought solution is labeled positive, negative, or neutral (shown as red/neutral/green faces) to train a process reward model.",
+      "attribution": "Figure from Lightman et al. (2023), Let's Verify Step by Step, arXiv:2305.20050"
+    },
+    {
+      "id": "fig-guan2025rstarmath",
+      "paper_key": "guan2025rstarmath",
+      "path": "figures/rstar-math-fig1.png",
+      "caption": "Overview of rStar-Math: MCTS-driven deep thinking pairs a small language model with a process preference model to produce step-by-step verified reasoning trajectories, from which per-step preference pairs are constructed over four rounds of self-evolution.",
+      "attribution": "Figure from Guan et al. (2025), rStar-Math, arXiv:2501.04519"
+    },
+    {
+      "id": "fig-yuan2024selfrewarding",
+      "paper_key": "yuan-2024-self-rewarding",
+      "path": "figures/self-rewarding-fig1.png",
+      "caption": "The Self-Rewarding Language Models loop: a model generates new prompts and candidate responses, acts as its own LLM-as-a-Judge to score them into preference pairs, and is retrained via DPO into the next-iteration model.",
+      "attribution": "Figure from Yuan et al. (2024), Self-Rewarding Language Models, arXiv:2401.10020"
+    },
+    {
+      "id": "fig-zhang2024generativeverifiers",
+      "paper_key": "zhang-2024-generative-verifiers",
+      "path": "figures/generative-verifiers-fig3.png",
+      "caption": "Illustration of generative verifiers: GenRM scores a solution by the token probability of answering 'Yes' to a correctness question, while GenRM-CoT samples multiple verification chains-of-thought and averages their Yes/No verdicts into the reward.",
+      "attribution": "Figure from Zhang et al. (2024), Generative Verifiers, arXiv:2408.15240"
+    },
+    {
+      "id": "fig-gunjal2025rubrics",
+      "paper_key": "gunjal2025rubrics",
+      "path": "figures/rubrics-fig1.png",
+      "caption": "Overview of Rubrics as Rewards (RaR): an LLM with human-expert guidance generates prompt-specific rubric criteria, which an LLM judge uses to score policy-model rollouts into a rubric reward that drives GRPO training.",
+      "attribution": "Figure from Gunjal et al. (2025), Rubrics as Rewards, arXiv:2507.17746"
+    },
+    {
+      "id": "fig-liu2025visualrft",
+      "paper_key": "liu2025visualrft",
+      "path": "figures/visual-rft-fig3.png",
+      "caption": "Framework of Visual-RFT: a policy vision-language model generates reasoning-plus-answer responses to an image question, which are scored by verifiable rewards (IoU reward for detection, classification reward) and used for policy-gradient optimization against a frozen reference model.",
+      "attribution": "Figure from Liu et al. (2025), Visual-RFT, arXiv:2503.01785"
+    },
+    {
+      "id": "fig-chen2024huatuogpto1",
+      "paper_key": "chen2024huatuogpto1",
+      "path": "figures/huatuogpt-o1-fig2.png",
+      "caption": "Two-stage pipeline for HuatuoGPT-o1 medical reasoning: Stage 1 uses a verifier and search strategies to build complex chain-of-thought data for SFT, then Stage 2 enhances reasoning with verifiable-reward RL (PPO) on medical problems.",
+      "attribution": "Figure from Chen et al. (2024), HuatuoGPT-o1, arXiv:2412.18925"
+    },
+    {
+      "id": "fig-yue2025rlincentivize",
+      "paper_key": "yue2025rlincentivize",
+      "path": "figures/rl-incentivize-fig1.png",
+      "caption": "Illustration that RLVR narrows rather than expands reasoning capacity: sampling trees show RLVR yields more efficient sampling of correct paths but reduced overall coverage, and pass@k curves cross so the base model overtakes RLVR-trained models at large k.",
+      "attribution": "Figure from Yue et al. (2025), Does RL Really Incentivize Reasoning, arXiv:2504.13837"
+    },
+    {
+      "id": "fig-shao2025spuriousrewards",
+      "paper_key": "shao2025spuriousrewards",
+      "path": "figures/spurious-rewards-fig1.png",
+      "caption": "MATH-500 accuracy after 300 RLVR steps under different training signals (ground truth, majority vote, one-shot, format, incorrect label, random reward): weak and even spurious rewards produce large gains on Qwen models but not on Llama or OLMo.",
+      "attribution": "Figure from Shao et al. (2025), Spurious Rewards, arXiv:2506.10947"
+    },
+    {
+      "id": "fig-kazemnejad2024vineppo",
+      "paper_key": "kazemnejad2024vineppo",
+      "path": "figures/vineppo-fig1.png",
+      "caption": "VinePPO credit-assignment example: for a sample chain-of-thought response, per-step estimated probability of correctness and Monte-Carlo advantages identify the single decisive reasoning step, alongside advantage distributions concentrated near zero for most tokens.",
+      "attribution": "Figure from Kazemnejad et al. (2024), VinePPO, arXiv:2410.01679"
+    },
+    {
+      "id": "fig-taxonomy",
+      "paper_key": "this-survey",
+      "path": "figures/taxonomy.svg",
+      "caption": "Taxonomy of task-specific RL for LLMs: reward source (rows) x optimization mechanism (columns), with per-cell paper counts and a cross-cutting root band.",
+      "attribution": "Original figure, this survey"
+    },
+    {
+      "id": "fig-timeline",
+      "paper_key": "this-survey",
+      "path": "figures/timeline.svg",
+      "caption": "Evolution of task-specific RL for LLMs, from pre-LLM execution-reward methods (Seq2SQL, 2017) through the GRPO/RLVR inflection to the 2025 domain explosion and reckoning.",
+      "attribution": "Original figure, this survey"
+    }
+  ]
+}

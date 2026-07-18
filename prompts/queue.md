@@ -16,6 +16,7 @@ See `CLAUDE.md` for the exact workflow.
 |------------|----------------------------------|------------------------------------------------------------|--------|
 | ai         | llm-benchmarks-evals             | LLM & Agent Benchmarks and Evaluations                     | DONE   |
 | ai         | rl-in-llms                       | Reinforcement Learning for Large Language Models           | DONE   |
+| ai         | task-specific-rl                 | Task-Specific Reinforcement Learning for LLMs              | DONE   |
 | pathology  | flow-cytometry-immunophenotyping | Immunophenotyping of Hematopoietic Cells by Flow Cytometry | DONE   |
 | philosophy | stoicism                         | Stoicism                                                   | DONE   |
 

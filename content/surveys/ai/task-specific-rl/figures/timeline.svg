@@ -1,0 +1,76 @@
+<svg viewBox="0 0 1560 900" xmlns="http://www.w3.org/2000/svg" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+<rect x="0" y="0" width="1560" height="900" fill="#0a0e0f"/>
+<text x="780.0" y="36" font-size="19" fill="#e6edf0" text-anchor="middle" font-weight="700">From Seq2SQL to R1-everywhere: how task-specific RL for LLMs evolved</text>
+<text x="780.0" y="58" font-size="12" fill="#7d919b" text-anchor="middle">pre-LLM years compressed; the 2024 GRPO / RLVR inflection and its 2025 domain explosion given room. corpus: 118 papers, 2017&#8211;2026</text>
+<rect x="80" y="80" width="300" height="690" rx="6" fill="#12242a" fill-opacity="0.45"/>
+<text x="230.0" y="102" font-size="13" fill="#2dd4bf" text-anchor="middle" font-weight="700">Pre-LLM task RL</text>
+<text x="230.0" y="120" font-size="11" fill="#7d919b" text-anchor="middle">2017&#8211;2020</text>
+<rect x="390" y="80" width="300" height="690" rx="6" fill="#12242a" fill-opacity="0.51"/>
+<text x="540.0" y="102" font-size="13" fill="#2dd4bf" text-anchor="middle" font-weight="700">Reward-shaping era</text>
+<text x="540.0" y="120" font-size="11" fill="#7d919b" text-anchor="middle">2022&#8211;2023</text>
+<rect x="700" y="80" width="360" height="690" rx="6" fill="#12242a" fill-opacity="0.57"/>
+<text x="880.0" y="102" font-size="13" fill="#2dd4bf" text-anchor="middle" font-weight="700">GRPO / RLVR inflection</text>
+<text x="880.0" y="120" font-size="11" fill="#7d919b" text-anchor="middle">2024&#8211;early 2025</text>
+<rect x="1070" y="80" width="410" height="690" rx="6" fill="#12242a" fill-opacity="0.63"/>
+<text x="1275.0" y="102" font-size="13" fill="#2dd4bf" text-anchor="middle" font-weight="700">Domain explosion &amp; reckoning</text>
+<text x="1275.0" y="120" font-size="11" fill="#7d919b" text-anchor="middle">2025&#8211;2026</text>
+<rect x="96" y="140" width="268" height="46" rx="6" fill="#141d21" stroke="#1c8577" stroke-width="1.2"/>
+<text x="106" y="159" font-size="11.5" fill="#e6edf0" font-weight="600">Seq2SQL (2017)</text>
+<text x="106" y="175" font-size="9.6" fill="#7d919b">policy-gradient + DB execution reward for text-to-SQL</text>
+<rect x="96" y="196" width="268" height="46" rx="6" fill="#141d21" stroke="#1c8577" stroke-width="1.2"/>
+<text x="106" y="215" font-size="11.5" fill="#e6edf0" font-weight="600">Relation-extraction RL (2018)</text>
+<text x="106" y="231" font-size="9.6" fill="#7d919b">RL denoises data for an NLP task</text>
+<rect x="96" y="300" width="268" height="46" rx="6" fill="#141d21" stroke="#2dd4bf" stroke-width="1.8"/>
+<text x="106" y="319" font-size="11.5" fill="#e6edf0" font-weight="600">Learning to summarize from human feedback (2020)</text>
+<text x="106" y="335" font-size="9.6" fill="#7d919b">RLHF reward model + PPO for one task</text>
+<rect x="96" y="372" width="268" height="46" rx="6" fill="#141d21" stroke="#1c8577" stroke-width="1.2"/>
+<text x="106" y="391" font-size="11.5" fill="#e6edf0" font-weight="600">Reward over-optimization scaling laws (2022)</text>
+<text x="106" y="407" font-size="9.6" fill="#7d919b">proxy-reward hacking, quantified</text>
+<rect x="406" y="140" width="268" height="46" rx="6" fill="#141d21" stroke="#2dd4bf" stroke-width="1.8"/>
+<text x="416" y="159" font-size="11.5" fill="#e6edf0" font-weight="600">CodeRL / PPOCoder (2022–23)</text>
+<text x="416" y="175" font-size="9.6" fill="#7d919b">unit-test execution as dense reward</text>
+<rect x="406" y="196" width="268" height="46" rx="6" fill="#141d21" stroke="#1c8577" stroke-width="1.2"/>
+<text x="416" y="215" font-size="11.5" fill="#e6edf0" font-weight="600">RLTF · StepCoder (2023–24)</text>
+<text x="416" y="231" font-size="9.6" fill="#7d919b">online + fine-grained execution feedback</text>
+<rect x="406" y="268" width="268" height="46" rx="6" fill="#141d21" stroke="#2dd4bf" stroke-width="1.8"/>
+<text x="416" y="287" font-size="11.5" fill="#e6edf0" font-weight="600">Let's Verify / Math-Shepherd (2023)</text>
+<text x="416" y="303" font-size="9.6" fill="#7d919b">process reward models for reasoning</text>
+<rect x="406" y="340" width="268" height="46" rx="6" fill="#141d21" stroke="#1c8577" stroke-width="1.2"/>
+<text x="416" y="359" font-size="11.5" fill="#e6edf0" font-weight="600">Fine-Grained RLHF (2023)</text>
+<text x="416" y="375" font-size="9.6" fill="#7d919b">dense, multi-aspect learned rewards</text>
+<rect x="716" y="140" width="332" height="46" rx="6" fill="#141d21" stroke="#2dd4bf" stroke-width="1.8"/>
+<text x="726" y="159" font-size="11.5" fill="#e6edf0" font-weight="600">DeepSeekMath — GRPO (2024)</text>
+<text x="726" y="175" font-size="9.6" fill="#7d919b">critic-free group PG makes task RL cheap</text>
+<rect x="716" y="196" width="332" height="46" rx="6" fill="#141d21" stroke="#2dd4bf" stroke-width="1.8"/>
+<text x="726" y="215" font-size="11.5" fill="#e6edf0" font-weight="600">Tulu 3 — coins 'RLVR' (2024)</text>
+<text x="726" y="231" font-size="9.6" fill="#7d919b">PPO vs a deterministic verifier, fully open</text>
+<rect x="716" y="268" width="332" height="46" rx="6" fill="#141d21" stroke="#1c8577" stroke-width="1.2"/>
+<text x="726" y="287" font-size="11.5" fill="#e6edf0" font-weight="600">VinePPO · Self-Rewarding LM · GenRM (2024)</text>
+<text x="726" y="303" font-size="9.6" fill="#7d919b">credit assignment; LLM-as-its-own-reward</text>
+<rect x="716" y="392" width="332" height="46" rx="6" fill="#141d21" stroke="#2dd4bf" stroke-width="1.8"/>
+<text x="726" y="411" font-size="11.5" fill="#e6edf0" font-weight="600">DeepSeek-R1-Zero (Jan 2025)</text>
+<text x="726" y="427" font-size="9.6" fill="#7d919b">verifiable reward + GRPO from base; reasoning emerges</text>
+<rect x="1086" y="140" width="380" height="46" rx="6" fill="#141d21" stroke="#2dd4bf" stroke-width="1.8"/>
+<text x="1096" y="159" font-size="11.5" fill="#e6edf0" font-weight="600">Domain fan-out (2025): Search-R1, ReTool, SWE-RL,</text>
+<text x="1096" y="175" font-size="9.6" fill="#7d919b">SQL-R1, Visual-RFT, Med-R1, UI-R1, MT-R1-Zero …</text>
+<rect x="1086" y="204" width="380" height="46" rx="6" fill="#141d21" stroke="#1c8577" stroke-width="1.2"/>
+<text x="1096" y="223" font-size="11.5" fill="#e6edf0" font-weight="600">Reward construction past verifiable (2025)</text>
+<text x="1096" y="239" font-size="9.6" fill="#7d919b">Rubrics-as-Rewards, RLPR, generative judges (J1)</text>
+<rect x="1086" y="268" width="380" height="46" rx="6" fill="#141d21" stroke="#1c8577" stroke-width="1.2"/>
+<text x="1096" y="287" font-size="11.5" fill="#e6edf0" font-weight="600">Recipe science (2025): DAPO, GSPO, Dr.GRPO,</text>
+<text x="1096" y="303" font-size="9.6" fill="#7d919b">ProRL, 1-shot RLVR, curricula, data selection</text>
+<rect x="1086" y="340" width="380" height="46" rx="6" fill="#141d21" stroke="#2dd4bf" stroke-width="1.8"/>
+<text x="1096" y="359" font-size="11.5" fill="#e6edf0" font-weight="600">Reckoning (2025): does RL teach or elicit?</text>
+<text x="1096" y="375" font-size="9.6" fill="#7d919b">Spurious Rewards · pass@k limits · RL's Razor forgetting</text>
+<rect x="1086" y="404" width="380" height="46" rx="6" fill="#141d21" stroke="#1c8577" stroke-width="1.2"/>
+<text x="1096" y="423" font-size="11.5" fill="#e6edf0" font-weight="600">Frontier (2026): forgetting laws, generalization,</text>
+<text x="1096" y="439" font-size="9.6" fill="#7d919b">rubric reward-hacking diagnostics, multi-role rubrics</text>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#2dd4bf"/></marker></defs>
+<line x1="364" y1="323" x2="406" y2="300" stroke="#2dd4bf" stroke-width="1.6" marker-end="url(#ah)" opacity="0.8"/>
+<line x1="674" y1="300" x2="716" y2="240" stroke="#2dd4bf" stroke-width="1.6" marker-end="url(#ah)" opacity="0.8"/>
+<line x1="1048" y1="175" x2="1086" y2="190" stroke="#2dd4bf" stroke-width="1.6" marker-end="url(#ah)" opacity="0.8"/>
+<line x1="1048" y1="415" x2="1086" y2="360" stroke="#2dd4bf" stroke-width="1.6" marker-end="url(#ah)" opacity="0.8"/>
+<text x="780.0" y="860" font-size="11" fill="#7d919b" text-anchor="middle">Bold = branch points that changed the recipe. Task-specific RL predates LLMs (execution reward, 2017); GRPO (2024) then R1 (2025) turned it into a</text>
+<text x="780.0" y="876" font-size="11" fill="#7d919b" text-anchor="middle">commodity recipe that fanned out across every domain, after which a reckoning wave asked what the reward is actually teaching.</text>
+<text x="780.0" y="894" font-size="9.5" fill="#55666d" text-anchor="middle">Original figure, this survey.</text>
+</svg>
