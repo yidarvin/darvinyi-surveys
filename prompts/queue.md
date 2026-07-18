@@ -12,12 +12,12 @@ language and Claude Code deduces the field and topic slug, stamps both files,
 builds with the `survey-and-taxonomy-research` skill, and runs the critic loop.
 See `CLAUDE.md` for the exact workflow.
 
-| field      | topic                            | title                                                      | status  |
-|------------|----------------------------------|------------------------------------------------------------|---------|
-| ai         | llm-benchmarks-evals             | LLM & Agent Benchmarks and Evaluations                     | DONE    |
-| ai         | rl-in-llms                       | Reinforcement Learning for Large Language Models           | DONE    |
-| pathology  | flow-cytometry-immunophenotyping | Immunophenotyping of Hematopoietic Cells by Flow Cytometry | DONE    |
-| philosophy | stoicism                         | Stoicism                                                   | PENDING |
+| field      | topic                            | title                                                      | status |
+|------------|----------------------------------|------------------------------------------------------------|--------|
+| ai         | llm-benchmarks-evals             | LLM & Agent Benchmarks and Evaluations                     | DONE   |
+| ai         | rl-in-llms                       | Reinforcement Learning for Large Language Models           | DONE   |
+| pathology  | flow-cytometry-immunophenotyping | Immunophenotyping of Hematopoietic Cells by Flow Cytometry | DONE   |
+| philosophy | stoicism                         | Stoicism                                                   | DONE   |
 
 <!--
 Row shape once populated:

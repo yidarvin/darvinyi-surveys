@@ -54,8 +54,8 @@
           "title": "Stoicism",
           "blurb": "From Zeno's porch to Marcus Aurelius's notebook: the ethics, discipline, and enduring practice of judging what is truly up to us.",
           "hero": "taxonomy.svg",
-          "status": "draft",
-          "corpusSize": null,
+          "status": "done",
+          "corpusSize": 101,
           "sourceMode": "broad"
         }
       ]
