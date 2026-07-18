@@ -33,118 +33,118 @@
 <text x="1150.0" y="432" font-size="10.5" fill="#7d919b" text-anchor="middle">2024</text>
 <line x1="1400.0" y1="404" x2="1400.0" y2="416" stroke="#7d919b" stroke-width="1.3"/>
 <text x="1400.0" y="432" font-size="10.5" fill="#7d919b" text-anchor="middle">2025</text>
+<circle cx="120.0" cy="410.0" r="5" fill="#2dd4bf" stroke="#06211d" stroke-width="1.2"/>
+<line x1="120.0" y1="382.0" x2="120.0" y2="410.0" stroke="#2dd4bf" stroke-width="1.1" stroke-dasharray="2,2"/>
+<circle cx="190.0" cy="410.0" r="5" fill="#2dd4bf" stroke="#06211d" stroke-width="1.2"/>
+<line x1="190.0" y1="324.0" x2="190.0" y2="410.0" stroke="#2dd4bf" stroke-width="1.1" stroke-dasharray="2,2"/>
+<circle cx="300.0" cy="410.0" r="5" fill="#2dd4bf" stroke="#06211d" stroke-width="1.2"/>
+<line x1="300.0" y1="266.0" x2="300.0" y2="410.0" stroke="#2dd4bf" stroke-width="1.1" stroke-dasharray="2,2"/>
+<circle cx="430.0" cy="410.0" r="5" fill="#2dd4bf" stroke="#06211d" stroke-width="1.2"/>
+<line x1="430.0" y1="382.0" x2="430.0" y2="410.0" stroke="#2dd4bf" stroke-width="1.1" stroke-dasharray="2,2"/>
+<circle cx="520.0" cy="410.0" r="5" fill="#2dd4bf" stroke="#06211d" stroke-width="1.2"/>
+<line x1="520.0" y1="324.0" x2="520.0" y2="410.0" stroke="#2dd4bf" stroke-width="1.1" stroke-dasharray="2,2"/>
+<circle cx="533.5" cy="410.0" r="5" fill="#2dd4bf" stroke="#06211d" stroke-width="1.2"/>
+<line x1="533.5" y1="266.0" x2="533.5" y2="410.0" stroke="#2dd4bf" stroke-width="1.1" stroke-dasharray="2,2"/>
+<circle cx="547.0" cy="410.0" r="5" fill="#2dd4bf" stroke="#06211d" stroke-width="1.2"/>
+<line x1="547.0" y1="208.0" x2="547.0" y2="410.0" stroke="#2dd4bf" stroke-width="1.1" stroke-dasharray="2,2"/>
+<circle cx="610.0" cy="410.0" r="5" fill="#2dd4bf" stroke="#06211d" stroke-width="1.2"/>
+<line x1="610.0" y1="150.0" x2="610.0" y2="410.0" stroke="#2dd4bf" stroke-width="1.1" stroke-dasharray="2,2"/>
+<circle cx="670.0" cy="410.0" r="5" fill="#2dd4bf" stroke="#06211d" stroke-width="1.2"/>
+<line x1="670.0" y1="382.0" x2="670.0" y2="410.0" stroke="#2dd4bf" stroke-width="1.1" stroke-dasharray="2,2"/>
+<circle cx="800.0" cy="410.0" r="5" fill="#2dd4bf" stroke="#06211d" stroke-width="1.2"/>
+<line x1="800.0" y1="324.0" x2="800.0" y2="410.0" stroke="#2dd4bf" stroke-width="1.1" stroke-dasharray="2,2"/>
+<circle cx="875.0" cy="410.0" r="5" fill="#2dd4bf" stroke="#06211d" stroke-width="1.2"/>
+<line x1="875.0" y1="382.0" x2="875.0" y2="410.0" stroke="#2dd4bf" stroke-width="1.1" stroke-dasharray="2,2"/>
+<circle cx="950.0" cy="410.0" r="7" fill="#a78bfa" stroke="#06211d" stroke-width="1.2"/>
+<line x1="950.0" y1="280.0" x2="950.0" y2="410.0" stroke="#a78bfa" stroke-width="1.3" stroke-dasharray="2,2"/>
+<circle cx="1080.0" cy="410.0" r="5" fill="#34d399" stroke="#06211d" stroke-width="1.2"/>
+<line x1="1080.0" y1="382.0" x2="1080.0" y2="410.0" stroke="#34d399" stroke-width="1.1" stroke-dasharray="2,2"/>
+<circle cx="1150.0" cy="410.0" r="7" fill="#34d399" stroke="#06211d" stroke-width="1.2"/>
+<line x1="1150.0" y1="338.0" x2="1150.0" y2="410.0" stroke="#34d399" stroke-width="1.3" stroke-dasharray="2,2"/>
+<circle cx="1225.0" cy="410.0" r="5" fill="#7d919b" stroke="#06211d" stroke-width="1.2"/>
+<line x1="1225.0" y1="280.0" x2="1225.0" y2="410.0" stroke="#7d919b" stroke-width="1.1" stroke-dasharray="2,2"/>
+<circle cx="1400.0" cy="410.0" r="9" fill="#2dd4bf" stroke="#06211d" stroke-width="1.2"/>
+<line x1="1400.0" y1="396.0" x2="1400.0" y2="410.0" stroke="#2dd4bf" stroke-width="1.3" stroke-dasharray="2,2"/>
 <rect x="32.0" y="340.0" width="176.0" height="42.0" rx="6" fill="#141d21" stroke="#2dd4bf" stroke-width="1.4"/>
 <text x="120.0" y="356.0" font-size="11.5" fill="#e6edf0" text-anchor="middle" font-weight="600">Williams 1992</text>
 <text x="120.0" y="370.0" font-size="9.5" fill="#7d919b" text-anchor="middle">REINFORCE</text>
-<circle cx="120.0" cy="410.0" r="5" fill="#2dd4bf" stroke="#06211d" stroke-width="1.2"/>
-<line x1="120.0" y1="382.0" x2="120.0" y2="410.0" stroke="#2dd4bf" stroke-width="1.1" stroke-dasharray="2,2"/>
 <rect x="102.0" y="282.0" width="176.0" height="42.0" rx="6" fill="#141d21" stroke="#2dd4bf" stroke-width="1.4"/>
 <text x="190.0" y="298.0" font-size="11.5" fill="#e6edf0" text-anchor="middle" font-weight="600">Sutton et al. 1999</text>
 <text x="190.0" y="312.0" font-size="9.5" fill="#7d919b" text-anchor="middle">policy gradient theorem</text>
-<circle cx="190.0" cy="410.0" r="5" fill="#2dd4bf" stroke="#06211d" stroke-width="1.2"/>
-<line x1="190.0" y1="324.0" x2="190.0" y2="410.0" stroke="#2dd4bf" stroke-width="1.1" stroke-dasharray="2,2"/>
 <rect x="212.0" y="224.0" width="176.0" height="42.0" rx="6" fill="#141d21" stroke="#2dd4bf" stroke-width="1.4"/>
 <text x="300.0" y="240.0" font-size="11.5" fill="#e6edf0" text-anchor="middle" font-weight="600">Knox &amp; Stone 2009</text>
 <text x="300.0" y="254.0" font-size="9.5" fill="#7d919b" text-anchor="middle">TAMER</text>
-<circle cx="300.0" cy="410.0" r="5" fill="#2dd4bf" stroke="#06211d" stroke-width="1.2"/>
-<line x1="300.0" y1="266.0" x2="300.0" y2="410.0" stroke="#2dd4bf" stroke-width="1.1" stroke-dasharray="2,2"/>
 <rect x="342.0" y="340.0" width="176.0" height="42.0" rx="6" fill="#141d21" stroke="#2dd4bf" stroke-width="1.4"/>
 <text x="430.0" y="356.0" font-size="11.5" fill="#e6edf0" text-anchor="middle" font-weight="600">Schulman et al. 2015</text>
 <text x="430.0" y="370.0" font-size="9.5" fill="#7d919b" text-anchor="middle">GAE</text>
-<circle cx="430.0" cy="410.0" r="5" fill="#2dd4bf" stroke="#06211d" stroke-width="1.2"/>
-<line x1="430.0" y1="382.0" x2="430.0" y2="410.0" stroke="#2dd4bf" stroke-width="1.1" stroke-dasharray="2,2"/>
 <rect x="432.0" y="282.0" width="176.0" height="42.0" rx="6" fill="#141d21" stroke="#2dd4bf" stroke-width="1.4"/>
 <text x="520.0" y="298.0" font-size="11.5" fill="#e6edf0" text-anchor="middle" font-weight="600">Schulman et al. 2017</text>
 <text x="520.0" y="312.0" font-size="9.5" fill="#7d919b" text-anchor="middle">PPO</text>
-<circle cx="520.0" cy="410.0" r="5" fill="#2dd4bf" stroke="#06211d" stroke-width="1.2"/>
-<line x1="520.0" y1="324.0" x2="520.0" y2="410.0" stroke="#2dd4bf" stroke-width="1.1" stroke-dasharray="2,2"/>
 <rect x="445.5" y="224.0" width="176.0" height="42.0" rx="6" fill="#141d21" stroke="#2dd4bf" stroke-width="1.4"/>
 <text x="533.5" y="240.0" font-size="11.5" fill="#e6edf0" text-anchor="middle" font-weight="600">Christiano et al. 2017</text>
 <text x="533.5" y="254.0" font-size="9.5" fill="#7d919b" text-anchor="middle">Deep RL from Human Prefs</text>
-<circle cx="533.5" cy="410.0" r="5" fill="#2dd4bf" stroke="#06211d" stroke-width="1.2"/>
-<line x1="533.5" y1="266.0" x2="533.5" y2="410.0" stroke="#2dd4bf" stroke-width="1.1" stroke-dasharray="2,2"/>
 <rect x="459.0" y="166.0" width="176.0" height="42.0" rx="6" fill="#141d21" stroke="#2dd4bf" stroke-width="1.4"/>
 <text x="547.0" y="182.0" font-size="11.5" fill="#e6edf0" text-anchor="middle" font-weight="600">MacGlashan et al. 2017</text>
 <text x="547.0" y="196.0" font-size="9.5" fill="#7d919b" text-anchor="middle">COACH critiques TAMER</text>
-<circle cx="547.0" cy="410.0" r="5" fill="#2dd4bf" stroke="#06211d" stroke-width="1.2"/>
-<line x1="547.0" y1="208.0" x2="547.0" y2="410.0" stroke="#2dd4bf" stroke-width="1.1" stroke-dasharray="2,2"/>
 <rect x="522.0" y="108.0" width="176.0" height="42.0" rx="6" fill="#141d21" stroke="#2dd4bf" stroke-width="1.4"/>
 <text x="610.0" y="124.0" font-size="11.5" fill="#e6edf0" text-anchor="middle" font-weight="600">Ziegler et al. 2019</text>
 <text x="610.0" y="138.0" font-size="9.5" fill="#7d919b" text-anchor="middle">fine-tune LM from prefs</text>
-<circle cx="610.0" cy="410.0" r="5" fill="#2dd4bf" stroke="#06211d" stroke-width="1.2"/>
-<line x1="610.0" y1="150.0" x2="610.0" y2="410.0" stroke="#2dd4bf" stroke-width="1.1" stroke-dasharray="2,2"/>
 <rect x="582.0" y="340.0" width="176.0" height="42.0" rx="6" fill="#141d21" stroke="#2dd4bf" stroke-width="1.4"/>
 <text x="670.0" y="356.0" font-size="11.5" fill="#e6edf0" text-anchor="middle" font-weight="600">Stiennon et al. 2020</text>
 <text x="670.0" y="370.0" font-size="9.5" fill="#7d919b" text-anchor="middle">learning to summarize</text>
-<circle cx="670.0" cy="410.0" r="5" fill="#2dd4bf" stroke="#06211d" stroke-width="1.2"/>
-<line x1="670.0" y1="382.0" x2="670.0" y2="410.0" stroke="#2dd4bf" stroke-width="1.1" stroke-dasharray="2,2"/>
 <rect x="712.0" y="282.0" width="176.0" height="42.0" rx="6" fill="#141d21" stroke="#2dd4bf" stroke-width="1.4"/>
 <text x="800.0" y="298.0" font-size="11.5" fill="#e6edf0" text-anchor="middle" font-weight="600">Ouyang et al. 2022</text>
 <text x="800.0" y="312.0" font-size="9.5" fill="#7d919b" text-anchor="middle">InstructGPT</text>
-<circle cx="800.0" cy="410.0" r="5" fill="#2dd4bf" stroke="#06211d" stroke-width="1.2"/>
-<line x1="800.0" y1="324.0" x2="800.0" y2="410.0" stroke="#2dd4bf" stroke-width="1.1" stroke-dasharray="2,2"/>
 <rect x="787.0" y="340.0" width="176.0" height="42.0" rx="6" fill="#141d21" stroke="#2dd4bf" stroke-width="1.4"/>
 <text x="875.0" y="356.0" font-size="11.5" fill="#e6edf0" text-anchor="middle" font-weight="600">Bai et al. 2022</text>
 <text x="875.0" y="370.0" font-size="9.5" fill="#7d919b" text-anchor="middle">HH-RLHF / Constitutional AI</text>
-<circle cx="875.0" cy="410.0" r="5" fill="#2dd4bf" stroke="#06211d" stroke-width="1.2"/>
-<line x1="875.0" y1="382.0" x2="875.0" y2="410.0" stroke="#2dd4bf" stroke-width="1.1" stroke-dasharray="2,2"/>
 <rect x="854.0" y="224.0" width="192.0" height="56.0" rx="6" fill="#141d21" stroke="#a78bfa" stroke-width="1.4"/>
 <text x="950.0" y="240.0" font-size="11.5" fill="#e6edf0" text-anchor="middle" font-weight="600">Rafailov et al. 2023</text>
 <text x="950.0" y="254.0" font-size="9.5" fill="#7d919b" text-anchor="middle">DPO breaks from the</text>
 <text x="950.0" y="268.0" font-size="9.5" fill="#7d919b" text-anchor="middle">actor-critic pipeline</text>
-<circle cx="950.0" cy="410.0" r="7" fill="#a78bfa" stroke="#06211d" stroke-width="1.2"/>
-<line x1="950.0" y1="280.0" x2="950.0" y2="410.0" stroke="#a78bfa" stroke-width="1.3" stroke-dasharray="2,2"/>
 <rect x="992.0" y="340.0" width="176.0" height="42.0" rx="6" fill="#141d21" stroke="#34d399" stroke-width="1.4"/>
 <text x="1080.0" y="356.0" font-size="11.5" fill="#e6edf0" text-anchor="middle" font-weight="600">Lambert et al. 2024</text>
 <text x="1080.0" y="370.0" font-size="9.5" fill="#7d919b" text-anchor="middle">Tulu 3 coins “RLVR”</text>
-<circle cx="1080.0" cy="410.0" r="5" fill="#34d399" stroke="#06211d" stroke-width="1.2"/>
-<line x1="1080.0" y1="382.0" x2="1080.0" y2="410.0" stroke="#34d399" stroke-width="1.1" stroke-dasharray="2,2"/>
 <rect x="1054.0" y="282.0" width="192.0" height="56.0" rx="6" fill="#141d21" stroke="#34d399" stroke-width="1.4"/>
 <text x="1150.0" y="298.0" font-size="11.5" fill="#e6edf0" text-anchor="middle" font-weight="600">Shao et al. 2024</text>
 <text x="1150.0" y="312.0" font-size="9.5" fill="#7d919b" text-anchor="middle">DeepSeekMath / GRPO</text>
 <text x="1150.0" y="326.0" font-size="9.5" fill="#7d919b" text-anchor="middle">critic-free RL</text>
-<circle cx="1150.0" cy="410.0" r="7" fill="#34d399" stroke="#06211d" stroke-width="1.2"/>
-<line x1="1150.0" y1="338.0" x2="1150.0" y2="410.0" stroke="#34d399" stroke-width="1.3" stroke-dasharray="2,2"/>
 <rect x="1129.0" y="224.0" width="192.0" height="56.0" rx="6" fill="#141d21" stroke="#7d919b" stroke-width="1.4"/>
 <text x="1225.0" y="240.0" font-size="11.5" fill="#e6edf0" text-anchor="middle" font-weight="600">OpenAI 2024</text>
 <text x="1225.0" y="254.0" font-size="9.5" fill="#7d919b" text-anchor="middle">o1 system card</text>
 <text x="1225.0" y="268.0" font-size="9.5" fill="#7d919b" text-anchor="middle">(the gap R1 answers)</text>
-<circle cx="1225.0" cy="410.0" r="5" fill="#7d919b" stroke="#06211d" stroke-width="1.2"/>
-<line x1="1225.0" y1="280.0" x2="1225.0" y2="410.0" stroke="#7d919b" stroke-width="1.1" stroke-dasharray="2,2"/>
 <rect x="1304.0" y="340.0" width="192.0" height="56.0" rx="6" fill="#123a34" stroke="#2dd4bf" stroke-width="1.4"/>
 <text x="1400.0" y="356.0" font-size="11.5" fill="#e6edf0" text-anchor="middle" font-weight="600">DeepSeek-AI 2025</text>
 <text x="1400.0" y="370.0" font-size="9.5" fill="#7d919b" text-anchor="middle">DeepSeek-R1</text>
 <text x="1400.0" y="384.0" font-size="9.5" fill="#7d919b" text-anchor="middle">RLVR crystallizes</text>
-<circle cx="1400.0" cy="410.0" r="9" fill="#2dd4bf" stroke="#06211d" stroke-width="1.2"/>
-<line x1="1400.0" y1="396.0" x2="1400.0" y2="410.0" stroke="#2dd4bf" stroke-width="1.3" stroke-dasharray="2,2"/>
 <text x="80" y="460" font-size="11" fill="#fb923c" font-style="italic">parallel threads (run throughout, not sequential eras)</text>
 <circle cx="475.0" cy="410.0" r="4.5" fill="#fb923c" stroke="#06211d" stroke-width="1.2"/>
 <line x1="475.0" y1="410.0" x2="475.0" y2="470.0" stroke="#fb923c" stroke-width="1.1" stroke-dasharray="2,2"/>
+<circle cx="800.0" cy="410.0" r="4.5" fill="#34d399" stroke="#06211d" stroke-width="1.2"/>
+<line x1="800.0" y1="410.0" x2="800.0" y2="470.0" stroke="#34d399" stroke-width="1.1" stroke-dasharray="2,2"/>
+<circle cx="890.0" cy="410.0" r="4.5" fill="#fb923c" stroke="#06211d" stroke-width="1.2"/>
+<line x1="890.0" y1="410.0" x2="890.0" y2="528.0" stroke="#fb923c" stroke-width="1.1" stroke-dasharray="2,2"/>
+<circle cx="950.0" cy="410.0" r="4.5" fill="#34d399" stroke="#06211d" stroke-width="1.2"/>
+<line x1="950.0" y1="410.0" x2="950.0" y2="586.0" stroke="#34d399" stroke-width="1.1" stroke-dasharray="2,2"/>
+<circle cx="1010.0" cy="410.0" r="4.5" fill="#34d399" stroke="#06211d" stroke-width="1.2"/>
+<line x1="1010.0" y1="410.0" x2="1010.0" y2="470.0" stroke="#34d399" stroke-width="1.1" stroke-dasharray="2,2"/>
+<circle cx="1070.0" cy="410.0" r="4.5" fill="#fb923c" stroke="#06211d" stroke-width="1.2"/>
+<line x1="1070.0" y1="410.0" x2="1070.0" y2="644.0" stroke="#fb923c" stroke-width="1.1" stroke-dasharray="2,2"/>
 <rect x="384.0" y="470.0" width="182.0" height="42.0" rx="6" fill="#141d21" stroke="#fb923c" stroke-width="1.4"/>
 <text x="475.0" y="486.0" font-size="11.5" fill="#e6edf0" text-anchor="middle" font-weight="600">Amodei et al. 2016</text>
 <text x="475.0" y="500.0" font-size="9.5" fill="#7d919b" text-anchor="middle">names “reward hacking”</text>
-<circle cx="800.0" cy="410.0" r="4.5" fill="#34d399" stroke="#06211d" stroke-width="1.2"/>
-<line x1="800.0" y1="410.0" x2="800.0" y2="470.0" stroke="#34d399" stroke-width="1.1" stroke-dasharray="2,2"/>
 <rect x="709.0" y="470.0" width="182.0" height="42.0" rx="6" fill="#141d21" stroke="#34d399" stroke-width="1.4"/>
 <text x="800.0" y="486.0" font-size="11.5" fill="#e6edf0" text-anchor="middle" font-weight="600">Zelikman et al. 2022</text>
 <text x="800.0" y="500.0" font-size="9.5" fill="#7d919b" text-anchor="middle">STaR bootstrap</text>
-<circle cx="890.0" cy="410.0" r="4.5" fill="#fb923c" stroke="#06211d" stroke-width="1.2"/>
-<line x1="890.0" y1="410.0" x2="890.0" y2="528.0" stroke="#fb923c" stroke-width="1.1" stroke-dasharray="2,2"/>
 <rect x="799.0" y="528.0" width="182.0" height="42.0" rx="6" fill="#141d21" stroke="#fb923c" stroke-width="1.4"/>
 <text x="890.0" y="544.0" font-size="11.5" fill="#e6edf0" text-anchor="middle" font-weight="600">Gao et al. 2022</text>
 <text x="890.0" y="558.0" font-size="9.5" fill="#7d919b" text-anchor="middle">reward-overopt. scaling laws</text>
-<circle cx="950.0" cy="410.0" r="4.5" fill="#34d399" stroke="#06211d" stroke-width="1.2"/>
-<line x1="950.0" y1="410.0" x2="950.0" y2="586.0" stroke="#34d399" stroke-width="1.1" stroke-dasharray="2,2"/>
 <rect x="859.0" y="586.0" width="182.0" height="42.0" rx="6" fill="#141d21" stroke="#34d399" stroke-width="1.4"/>
 <text x="950.0" y="602.0" font-size="11.5" fill="#e6edf0" text-anchor="middle" font-weight="600">Gulcehre et al. 2023</text>
 <text x="950.0" y="616.0" font-size="9.5" fill="#7d919b" text-anchor="middle">ReST</text>
-<circle cx="1010.0" cy="410.0" r="4.5" fill="#34d399" stroke="#06211d" stroke-width="1.2"/>
-<line x1="1010.0" y1="410.0" x2="1010.0" y2="470.0" stroke="#34d399" stroke-width="1.1" stroke-dasharray="2,2"/>
 <rect x="919.0" y="470.0" width="182.0" height="42.0" rx="6" fill="#141d21" stroke="#34d399" stroke-width="1.4"/>
 <text x="1010.0" y="486.0" font-size="11.5" fill="#e6edf0" text-anchor="middle" font-weight="600">Lightman et al. 2023</text>
 <text x="1010.0" y="500.0" font-size="9.5" fill="#7d919b" text-anchor="middle">process reward (PRM)</text>
-<circle cx="1070.0" cy="410.0" r="4.5" fill="#fb923c" stroke="#06211d" stroke-width="1.2"/>
-<line x1="1070.0" y1="410.0" x2="1070.0" y2="644.0" stroke="#fb923c" stroke-width="1.1" stroke-dasharray="2,2"/>
 <rect x="979.0" y="644.0" width="182.0" height="42.0" rx="6" fill="#141d21" stroke="#fb923c" stroke-width="1.4"/>
 <text x="1070.0" y="660.0" font-size="11.5" fill="#e6edf0" text-anchor="middle" font-weight="600">Casper et al. 2023</text>
 <text x="1070.0" y="674.0" font-size="9.5" fill="#7d919b" text-anchor="middle">Open Problems in RLHF</text>
