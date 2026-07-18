@@ -42,6 +42,23 @@
           "corpusSize": 67
         }
       ]
+    },
+    {
+      "slug": "philosophy",
+      "name": "Philosophy",
+      "blurb": "Ideas read from their own primary texts and the scholarship that takes them seriously, not from headlines.",
+      "graphic": "philosophy.svg",
+      "topics": [
+        {
+          "slug": "stoicism",
+          "title": "Stoicism",
+          "blurb": "From Zeno's porch to Marcus Aurelius's notebook: the ethics, discipline, and enduring practice of judging what is truly up to us.",
+          "hero": "taxonomy.svg",
+          "status": "draft",
+          "corpusSize": null,
+          "sourceMode": "broad"
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,18 @@
+{
+  "figures": [
+    {
+      "id": "fig-taxonomy",
+      "paper_key": "this-survey",
+      "path": "figures/taxonomy.svg",
+      "caption": "The corpus placed on two axes -- historical period (ancient primary, early modern Neostoic revival, modern scholarship and revival) by doctrinal domain / mode of engagement (ethics and value theory, logic/physics/theology, practice and therapeutic technique, politics/reception/critique) -- plus 7 sources that sit above both axes: four foundational whole-system reference works and Diogenes Laertius's three founder biographies.",
+      "attribution": "Original figure, this survey"
+    },
+    {
+      "id": "fig-timeline",
+      "paper_key": "this-survey",
+      "path": "figures/timeline.svg",
+      "caption": "A compressed, non-linear timeline of Stoicism's evolution: the founding (no primary texts survive), the Roman Stoa's primary texts alongside ancient testimony and critique, a roughly 1,350-year institutional dormancy, the Neostoic revival and Hegel's critique, the 20th century's split into an academic-recovery lineage, a philosophical critique-of-the-passions lineage, and a clinical/CBT-borrowing lineage, and their convergence in the contemporary Modern Stoicism movement, now itself empirically tested and contested.",
+      "attribution": "Original figure, this survey"
+    }
+  ]
+}

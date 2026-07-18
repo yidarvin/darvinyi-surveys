@@ -1,0 +1,75 @@
+<svg viewBox="0 0 1400 860" xmlns="http://www.w3.org/2000/svg" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+<rect x="0" y="0" width="1400" height="860" fill="#0a0e0f"/>
+<rect x="270.0" y="16" width="860" height="60" rx="8" fill="#141d21" stroke="#d9a94e" stroke-width="1.5"/>
+<text x="700.0" y="42" font-size="17" fill="#e6edf0" text-anchor="middle" font-weight="600">Stoicism: historical period &#215; doctrinal domain / mode of engagement</text>
+<text x="700.0" y="63" font-size="12.5" fill="#7d919b" text-anchor="middle">corpus: 101 sources &#8212; 94 placed on the two axes, 7 cross-cutting (root)</text>
+<rect x="340" y="96" width="335" height="56" rx="7" fill="#141d21" stroke="#8a6a2f" stroke-width="1.5"/>
+<text x="507.5" y="118" font-size="13" fill="#e6edf0" text-anchor="middle" font-weight="600">Ancient primary</text>
+<text x="507.5" y="134" font-size="13" fill="#e6edf0" text-anchor="middle" font-weight="600">(c. 300 BCE-200 CE)</text>
+<text x="507.5" y="146" font-size="9.5" fill="#7d919b" text-anchor="middle">Hellenistic/Roman primary texts &amp; doxography</text>
+<rect x="692" y="96" width="335" height="56" rx="7" fill="#141d21" stroke="#8a6a2f" stroke-width="1.5"/>
+<text x="859.5" y="118" font-size="13" fill="#e6edf0" text-anchor="middle" font-weight="600">Early modern revival</text>
+<text x="859.5" y="134" font-size="13" fill="#e6edf0" text-anchor="middle" font-weight="600">(16th-18th c.)</text>
+<text x="859.5" y="146" font-size="9.5" fill="#7d919b" text-anchor="middle">Neostoic re-founding of Stoic doctrine</text>
+<rect x="1044" y="96" width="335" height="56" rx="7" fill="#141d21" stroke="#8a6a2f" stroke-width="1.5"/>
+<text x="1211.5" y="118" font-size="13" fill="#e6edf0" text-anchor="middle" font-weight="600">Modern scholarship &amp; revival</text>
+<text x="1211.5" y="134" font-size="13" fill="#e6edf0" text-anchor="middle" font-weight="600">(19th c.-present)</text>
+<text x="1211.5" y="146" font-size="9.5" fill="#7d919b" text-anchor="middle">reconstruction, psychology, contemporary movement</text>
+<rect x="20" y="170" width="320" height="102" rx="7" fill="#141d21" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="34" y="200" font-size="13.5" fill="#e6edf0" font-weight="600">Ethics &amp; value theory</text>
+<text x="34" y="220" font-size="10" fill="#7d919b">virtue, telos, oikeiosis, indifferents,</text>
+<text x="34" y="234" font-size="10" fill="#7d919b">moral psychology</text>
+<text x="34" y="258" font-size="10.5" fill="#d9a94e" font-weight="600">22 total</text>
+<rect x="340" y="170" width="335" height="102" rx="7" fill="#d9a94e" fill-opacity="0.32" stroke="#d9a94e" stroke-opacity="0.9" stroke-width="1.5"/>
+<text x="507.5" y="230.0" font-size="28" fill="#e6edf0" text-anchor="middle" font-weight="700">5</text>
+<rect x="692" y="170" width="335" height="102" rx="7" fill="#d9a94e" fill-opacity="0.21" stroke="#d9a94e" stroke-opacity="0.9" stroke-width="1.5"/>
+<text x="859.5" y="230.0" font-size="28" fill="#e6edf0" text-anchor="middle" font-weight="700">1</text>
+<rect x="1044" y="170" width="335" height="102" rx="7" fill="#d9a94e" fill-opacity="0.62" stroke="#d9a94e" stroke-opacity="0.9" stroke-width="1.5"/>
+<text x="1211.5" y="230.0" font-size="28" fill="#241a05" text-anchor="middle" font-weight="700">16</text>
+<rect x="20" y="284" width="320" height="102" rx="7" fill="#141d21" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="34" y="314" font-size="13.5" fill="#e6edf0" font-weight="600">Logic, physics &amp; theology</text>
+<text x="34" y="334" font-size="10" fill="#7d919b">propositional logic, fate/causation,</text>
+<text x="34" y="348" font-size="10" fill="#7d919b">cosmology, god</text>
+<text x="34" y="372" font-size="10.5" fill="#d9a94e" font-weight="600">16 total</text>
+<rect x="340" y="284" width="335" height="102" rx="7" fill="#d9a94e" fill-opacity="0.37" stroke="#d9a94e" stroke-opacity="0.9" stroke-width="1.5"/>
+<text x="507.5" y="344.0" font-size="28" fill="#e6edf0" text-anchor="middle" font-weight="700">7</text>
+<rect x="692" y="284" width="335" height="102" rx="7" fill="#10171a" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="859.5" y="340.0" font-size="13" fill="#7d919b" text-anchor="middle">&#8212;</text>
+<rect x="1044" y="284" width="335" height="102" rx="7" fill="#d9a94e" fill-opacity="0.43" stroke="#d9a94e" stroke-opacity="0.9" stroke-width="1.5"/>
+<text x="1211.5" y="344.0" font-size="28" fill="#e6edf0" text-anchor="middle" font-weight="700">9</text>
+<rect x="20" y="398" width="320" height="102" rx="7" fill="#141d21" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="34" y="428" font-size="13.5" fill="#e6edf0" font-weight="600">Practice &amp; therapeutic technique</text>
+<text x="34" y="448" font-size="10" fill="#7d919b">askesis, spiritual exercises, CBT/REBT/LBT</text>
+<text x="34" y="462" font-size="10" fill="#7d919b">descent</text>
+<text x="34" y="486" font-size="10.5" fill="#d9a94e" font-weight="600">34 total</text>
+<rect x="340" y="398" width="335" height="102" rx="7" fill="#d9a94e" fill-opacity="0.37" stroke="#d9a94e" stroke-opacity="0.9" stroke-width="1.5"/>
+<text x="507.5" y="458.0" font-size="28" fill="#e6edf0" text-anchor="middle" font-weight="700">7</text>
+<rect x="692" y="398" width="335" height="102" rx="7" fill="#d9a94e" fill-opacity="0.21" stroke="#d9a94e" stroke-opacity="0.9" stroke-width="1.5"/>
+<text x="859.5" y="458.0" font-size="28" fill="#e6edf0" text-anchor="middle" font-weight="700">1</text>
+<rect x="1044" y="398" width="335" height="102" rx="7" fill="#d9a94e" fill-opacity="0.9" stroke="#d9a94e" stroke-opacity="0.9" stroke-width="1.5"/>
+<text x="1211.5" y="458.0" font-size="28" fill="#241a05" text-anchor="middle" font-weight="700">26</text>
+<rect x="20" y="512" width="320" height="102" rx="7" fill="#141d21" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="34" y="542" font-size="13.5" fill="#e6edf0" font-weight="600">Politics, reception &amp; critique</text>
+<text x="34" y="562" font-size="10" fill="#7d919b">statecraft, social/institutional reception,</text>
+<text x="34" y="576" font-size="10" fill="#7d919b">system-level critique</text>
+<text x="34" y="600" font-size="10.5" fill="#d9a94e" font-weight="600">22 total</text>
+<rect x="340" y="512" width="335" height="102" rx="7" fill="#d9a94e" fill-opacity="0.29" stroke="#d9a94e" stroke-opacity="0.9" stroke-width="1.5"/>
+<text x="507.5" y="572.0" font-size="28" fill="#e6edf0" text-anchor="middle" font-weight="700">4</text>
+<rect x="692" y="512" width="335" height="102" rx="7" fill="#d9a94e" fill-opacity="0.21" stroke="#d9a94e" stroke-opacity="0.9" stroke-width="1.5"/>
+<text x="859.5" y="572.0" font-size="28" fill="#e6edf0" text-anchor="middle" font-weight="700">1</text>
+<rect x="1044" y="512" width="335" height="102" rx="7" fill="#d9a94e" fill-opacity="0.65" stroke="#d9a94e" stroke-opacity="0.9" stroke-width="1.5"/>
+<text x="1211.5" y="572.0" font-size="28" fill="#241a05" text-anchor="middle" font-weight="700">17</text>
+<line x1="20" y1="640" x2="1380" y2="640" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="20" y="666" font-size="14" fill="#e6edf0" font-weight="600">root &#8212; sits above both axes (7 sources)</text>
+<rect x="20" y="680" width="672" height="104" rx="7" fill="#141d21" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="34" y="704" font-size="13" fill="#e6edf0" font-weight="600">Foundational whole-system reference works</text>
+<text x="34" y="724" font-size="10" fill="#7d919b">SVF fragment collection; Long &amp; Sedley sourcebook; Long's synthetic history;</text>
+<text x="34" y="738" font-size="10" fill="#7d919b">the SEP Stoicism entry -- each spans logic, physics, and ethics at once rather</text>
+<text x="34" y="752" font-size="10" fill="#7d919b">than one domain</text>
+<text x="34" y="774" font-size="15" fill="#d9a94e" font-weight="700">4 sources</text>
+<rect x="708" y="680" width="672" height="104" rx="7" fill="#141d21" stroke="#1e2a30" stroke-width="1.5"/>
+<text x="722" y="704" font-size="13" fill="#e6edf0" font-weight="600">Founders' biographical-doxographical portraits</text>
+<text x="722" y="724" font-size="10" fill="#7d919b">Diogenes Laertius on Zeno, Chrysippus, and Cleanthes -- life narrative fused with</text>
+<text x="722" y="738" font-size="10" fill="#7d919b">system summary, not reducible to one doctrinal domain or one period-internal argument</text>
+<text x="722" y="774" font-size="15" fill="#d9a94e" font-weight="700">3 sources</text>
+</svg>
