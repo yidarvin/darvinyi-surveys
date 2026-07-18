@@ -24,6 +24,14 @@
           "hero": "taxonomy.svg",
           "status": "done",
           "corpusSize": 141
+        },
+        {
+          "slug": "task-specific-rl",
+          "title": "Task-Specific Reinforcement Learning for LLMs",
+          "blurb": "Building a specialist: how to turn one downstream task into a dataset, a reward, and an RL loop that trains an LLM to master it.",
+          "hero": "taxonomy.svg",
+          "status": "done",
+          "corpusSize": 118
         }
       ]
     },
